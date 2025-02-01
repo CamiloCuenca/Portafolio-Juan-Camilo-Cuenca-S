@@ -10,7 +10,7 @@ export default function Header() {
                 </div>
 
                 {/* Lista de navegación centrada */}
-                <ul className="flex space-x-8 font-bold">
+                <ul className="flex space-x-8 font-bold text-lg">
                     <li>
                         <a href="#about" className="hover:text-purple-400 transition duration-300">
                             About Me

@@ -11,7 +11,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-gray-900 text-white py-6">
+    <footer className="bg-purple-dark text-white text-lg py-6 ">
       <div className="container mx-auto flex flex-col items-center">
         <p className="mb-2">© {new Date().getFullYear()} Juan Camilo Cuenca</p>
         <div className="flex space-x-6 items-center">
