@@ -1,14 +1,9 @@
 import { FiGithub, FiLinkedin, FiMail, FiCopy } from "react-icons/fi";
-import { useState } from "react";
+import { useCopyEmail } from "../../hooks/useCopyEmail";
 
 export default function Footer() {
-  const [copied, setCopied] = useState(false);
+  const { copied, handleCopyEmail } = useCopyEmail();
 
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText("camilocuencadev@gmail.com");
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000); // Restablecer estado después de 2s
-  };
 
   return (
     <footer className="bg-purple-dark text-white text-lg py-6 ">
