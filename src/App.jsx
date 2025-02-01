@@ -1,8 +1,8 @@
 import './App.css'
 import Footer from './components/layouts/Footer'
 import Header from './components/layouts/Header'
-import HeroSection from './components/layouts/HeroSection'
-import SocialLinks from './components/layouts/SocialLinks'
+import Home from './pages/Home'
+
 
 
 
@@ -14,8 +14,7 @@ function App() {
     < >
     <Header></Header>
     
-    <HeroSection></HeroSection>
-    <SocialLinks></SocialLinks>
+    <Home></Home>
   
     <Footer></Footer>
     </>
