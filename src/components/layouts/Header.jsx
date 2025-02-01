@@ -4,8 +4,10 @@ export default function Header() {
     return (
         <header className="bg-purple p-4 text-white">
             <nav className="flex justify-between items-center">
-                {/* Espacio vacío a la izquierda para equilibrar el diseño */}
-                <div className="flex-1"></div>
+                {/* Espacio para el Logo */}
+                <div className="flex-1">
+                    <img className="h-10 w-auto" src="src/assets/Logo.svg" alt="Logo" />
+                </div>
 
                 {/* Lista de navegación centrada */}
                 <ul className="flex space-x-8 font-bold">
