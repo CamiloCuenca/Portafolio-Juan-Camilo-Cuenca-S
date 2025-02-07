@@ -6,7 +6,7 @@ export default function Header() {
             <nav className="flex justify-between items-center">
                 {/* Espacio para el Logo */}
                 <div className="flex-1">
-                    <img className="h-10 w-auto" src="src/assets/Logo.svg" alt="Logo" />
+                    <img className="h-10 w-auto" src="/assets/Logo.svg" alt="Logo" />
                 </div>
 
                 {/* Lista de navegación centrada */}
