@@ -1,4 +1,4 @@
-import ButtonDownload from "../common/ButtonDownload ";
+import ButtonDownload from "../common/ButtonDownload";
 
 export default function Header() {
     return (
@@ -6,11 +6,11 @@ export default function Header() {
             <nav className="flex justify-between items-center">
                 {/* Espacio para el Logo */}
                 <div className="flex-1">
-                    <img className="h-10 w-auto" src="/assets/Logo.svg" alt="Logo" />
+                    <img className="h-10 w-auto sm:h-5 lg:h-12" src="/assets/Logo.svg" alt="Logo" />
                 </div>
 
                 {/* Lista de navegación centrada */}
-                <ul className="flex space-x-8 font-bold text-lg">
+                <ul className="flex space-x-8 font-bold text-lg sm:text-sm md:text-base">
                     <li>
                         <a href="#about" className="hover:text-purple-400 transition duration-300">
                             About Me
@@ -29,7 +29,7 @@ export default function Header() {
                 </ul>
 
                 {/* Botón de descarga a la derecha */}
-                <div className="flex-1 flex justify-end mr-2.5">
+                <div className="flex-1 flex justify-end mr-2.5 ">
                     <ButtonDownload />
 
                 </div>
