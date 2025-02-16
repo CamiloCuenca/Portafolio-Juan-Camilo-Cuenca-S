@@ -10,7 +10,7 @@ export default function Skills() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {/* Lenguajes */}
-                <div className="bg-purple-100 p-4 rounded-lg shadow-md">
+                <div className="bg-white p-4 rounded-lg  shadow-2xl">
                     <h3 className="text-lg font-semibold mb-3">Languages</h3>
                     <div className="flex flex-wrap gap-4">
                         <FaJava className="h-12 w-12 text-orange-600" />
@@ -21,7 +21,7 @@ export default function Skills() {
                 </div>
 
                 {/* Frameworks */}
-                <div className="bg-purple-100 p-4 rounded-lg shadow-md">
+                <div className="bg-white p-4 rounded-lg  shadow-2xl">
                     <h3 className="text-lg font-semibold mb-3">Frameworks</h3>
                     <div className="flex flex-wrap gap-4">
                         <SiSpringboot className="h-12 w-12 text-green-600" />
@@ -33,7 +33,7 @@ export default function Skills() {
                 </div>
 
                 {/* Herramientas */}
-                <div className="bg-purple-100 p-4 rounded-lg shadow-md">
+                <div className="bg-white p-4 rounded-lg shadow-2xl">
                     <h3 className="text-lg font-semibold mb-3">Tools</h3>
                     <div className="flex flex-wrap gap-4">
                         <FaDocker className="h-12 w-12 text-blue-700" />

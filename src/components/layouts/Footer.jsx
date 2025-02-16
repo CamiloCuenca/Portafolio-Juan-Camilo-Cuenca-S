@@ -6,9 +6,9 @@ export default function Footer() {
 
   return (
     <footer className="bg-purple-dark text-white text-base py-6">
-      <div className="container mx-auto flex flex-col md:flex-col items-center justify-between px-6">
+      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-6">
         {/* Derechos de autor */}
-        <p className="text-center mb-4 md:mb-0">
+        <p className="text-center md:text-left">
           © {new Date().getFullYear()} Juan Camilo Cuenca
         </p>
 
