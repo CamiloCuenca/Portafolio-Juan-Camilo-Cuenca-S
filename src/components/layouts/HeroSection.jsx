@@ -2,9 +2,9 @@ export default function HeroSection() {
   return (
     <div className="bg-purple-deep py-3 flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-20 lg:space-x-35">
       {/* Imagen de perfil */}
-      <div className="w-80 h-80 ml-5 bg-gradient-to-t from-purple-deep to-purple rounded-full overflow-hidden flex items-center justify-center">
+      <div className="w-75 h-75 ml-5 bg-gradient-to-t from-purple-deep to-purple rounded-full overflow-hidden flex items-center justify-center">
         <img
-          className="w-65 h-75 sm:w-40 sm:h-50 md:w-65 md:h-75 xl:w-75 xl:h-85 object-cover rounded-full"
+          className="w-65 h-75 sm:w-40 sm:h-50 md:w-65 md:h-75 xl:w-75 xl:h-85 object-contain rounded-full"
           src="/assets/FotoPerfil.png"
           alt="Foto Perfil"
         />

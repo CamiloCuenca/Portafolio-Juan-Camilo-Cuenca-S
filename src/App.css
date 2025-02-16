@@ -29,8 +29,8 @@ html, body {
 .container {
   width: 100%;
   max-width: 1280px; /* Cambia según tus necesidades */
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0;
+  margin-right: 0;
   padding-left: 1rem; /* Ajusta el espaciado lateral */
   padding-right: 1rem;
 }
