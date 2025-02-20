@@ -8,7 +8,11 @@ function App() {
   return (
     <React.Fragment>
       <Header />
-      <Home />
+      <div className="App">
+        
+        <Home />
+        
+      </div>
       <Footer />
     </React.Fragment>
   );
