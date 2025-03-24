@@ -1,5 +1,5 @@
-import { FaJava, FaPython, FaReact, FaBootstrap, FaDocker } from "react-icons/fa";
-import { SiSpringboot, SiPostman, SiExpo, SiJsonwebtokens, SiTypescript } from "react-icons/si";
+import { FaJava, FaPython, FaReact, FaBootstrap, FaDocker , FaLinux , FaFigma } from "react-icons/fa";
+import { SiSpringboot, SiPostman, SiExpo, SiTypescript ,SiIntellijidea  } from "react-icons/si";
 import { IoLogoJavascript } from "react-icons/io5";
 import { RiTailwindCssFill } from "react-icons/ri";
 
@@ -39,7 +39,9 @@ export default function Skills() {
                     <div className="flex gap-6">
                         <FaDocker className="h-12 w-12 text-blue-700" />
                         <SiPostman className="h-12 w-12 text-orange-500" />
-                        <SiJsonwebtokens className="h-12 w-12 text-red-500" />
+                        <FaLinux className="h-12 w-12 text-black" />
+                        <SiIntellijidea className="h-12 w-12 text-black" />
+                        <FaFigma className="h-12 w-12 " />
                     </div>
                 </div>
             </div>
