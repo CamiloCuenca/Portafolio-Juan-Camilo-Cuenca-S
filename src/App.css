@@ -10,8 +10,6 @@
   --color-purple-alt: #8121D0;
 }
 
-
-
 /* Estilos globales */
 html, body {
   margin: 0;
@@ -19,18 +17,42 @@ html, body {
   font-family: 'Inter', sans-serif; /* Cambia por la fuente que uses */
   box-sizing: border-box;
   scroll-behavior: smooth; /* Suaviza el scroll para una mejor UX */
-  background-color: var(--color-white); /* Color de fondo predeterminado */
+  background-color: var(--color-gray-light); /* Color de fondo predeterminado */
   color: var(--color-black); /* Color de texto predeterminado */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Esto separa el header y el footer */
 }
 
+/* App contenedor general */
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Para que el contenido no esté totalmente centrado */
+  align-items: center;
+  min-height: 100vh; /* Asegura que ocupe toda la altura de la pantalla */
+}
+
+/* Contenedor de main para asegurarse de que el contenido se centre */
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer {
+  width: 100%;
+}
 
 
 /* Estilo responsivo general para contenedores */
 .container {
   width: 100%;
   max-width: 1280px; /* Cambia según tus necesidades */
-  margin-left: 0;
-  margin-right: 0;
+  margin-left: auto;  /* Para centrar horizontalmente */
+  margin-right: auto; /* Para centrar horizontalmente */
   padding-left: 1rem; /* Ajusta el espaciado lateral */
   padding-right: 1rem;
 }

@@ -9,7 +9,7 @@ const featuredRepos = [
   },
   {
     name: "UniEventos_proyecto_final_Frontend",
-    image: null,
+    image: "/assets/img-Proyects/UniEventos.png",
   },
   {
     name: "AppMisiontic-Movil",
@@ -17,15 +17,15 @@ const featuredRepos = [
   },
   {
     name: "PomoTimerFlow",
-    image: null,
+    image: "/assets/img-Proyects/PomoTimerFlow.png",
   },
   {
     name: "regex-validator",
-    image: null,
+    image: "/assets/img-Proyects/regex-validator.png",
   },
   {
     name: "Portafolio-Juan-Camilo-Cuenca-S",
-    image: "/assets/PortafolioPrueba.png", // Imagen alojada en public/assets/
+    image: "/assets/img-Proyects/PortafolioPrueba.png", // Imagen alojada en public/assets/
   },
 ];
 
