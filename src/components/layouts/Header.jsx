@@ -27,17 +27,22 @@ export default function Header() {
                 >
                     <li>
                         <a href="#about" className="hover:text-purple-400 transition duration-300 block py-2">
-                            About Me
+                        Acerca de mí
                         </a>
                     </li>
                     <li>
                         <a href="#skills" className="hover:text-purple-400 transition duration-300 block py-2">
-                            My Skills
+                        Mis Skills
                         </a>
                     </li>
                     <li>
                         <a href="#projects" className="hover:text-purple-400 transition duration-300 block py-2">
-                            My Projects
+                            Mis proyectos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#more-about" className="hover:text-purple-400 transition duration-300 block py-2">
+                            Más sobre mí
                         </a>
                     </li>
                 </ul>

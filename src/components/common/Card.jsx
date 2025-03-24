@@ -23,7 +23,15 @@ export default function Card({ name, description, url, homepage, language, stars
   return (
     <div className="rounded-xl shadow-md p-5 bg-white transition-transform duration-300 ease-out hover:scale-105 hover:shadow-lg">
       {/* Imagen del proyecto */}
-      {image && <img src={image} alt={`${name} preview`} className="w-full h-40 object-cover rounded-lg mb-4" />}
+      {image && 
+      
+      <img
+  src={image}
+  alt={`${name} preview`}
+  className="w-full aspect-[16/9] object-contain  rounded-lg mb-4"
+/>
+
+    }
 
       {/* Nombre del proyecto con truncado */}
       <h2 className="text-lg font-semibold truncate w-full mb-2" title={name}>🚀 {name}</h2>
