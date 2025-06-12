@@ -1,6 +1,6 @@
 export default function Education() {
     return (
-        <div>
+        <div id="education">
                     <h2 className="text-2xl font-bold mb-3">Formación Académica</h2>
 
       <div className="p-4 bg-white rounded-lg shadow-md">

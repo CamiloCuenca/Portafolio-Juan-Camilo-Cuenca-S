@@ -5,6 +5,7 @@ import AboutMe from '../components/layouts/AboutMe';
 import Projects from '../components/layouts/Projects';
 import Education from '../components/layouts/Education';
 import Experience from '../components/layouts/Experience';
+import GitHubStats from '../components/layouts/GitHubStats';
 
 export default function Home() {
   return (
@@ -50,6 +51,23 @@ export default function Home() {
         {/* Projects Section */}
         <div className="p-4 bg-white shadow-md rounded-2xl hover:shadow-xl ">
           <Projects />
+        </div>
+        {/* Botón Saber más sobre mí */}
+        <div className="flex justify-center mt-8 mb-8">
+          <button
+            id="show-github-stats-btn"
+            className="bg-primary text-white px-6 py-2 rounded-xl font-semibold shadow hover:bg-secondary transition-colors duration-300"
+            onClick={() => {
+              const stats = document.getElementById('github-stats-section');
+              if (stats) stats.style.display = stats.style.display === 'none' ? 'block' : 'none';
+            }}
+          >
+          Más sobre mí
+          </button>
+        </div>
+        {/* Sección GitHubStats oculta inicialmente */}
+        <div id="github-stats-section" style={{ display: 'none' }} className="mt-8">
+          <GitHubStats />
         </div>
       </div>
     </div>

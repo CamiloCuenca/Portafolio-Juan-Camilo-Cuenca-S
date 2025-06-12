@@ -1,7 +1,7 @@
 export default function Experience() {
     return (
         
-<div>
+<div id="experience">
 <h2 className="text-2xl font-bold mb-3">Experiencia laboral</h2>
 
       <div className="bg-white p-4 rounded-lg shadow-md">
