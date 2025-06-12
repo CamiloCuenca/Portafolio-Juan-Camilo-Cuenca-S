@@ -1,6 +1,20 @@
 import useGitHubRepos from "../../hooks/useGitHubRepos";
 import Card from "../common/Card";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
+
+// Hook para detectar si es una pantalla pequeña (menor a 640px)
+function useIsSmallScreen() {
+  const [isSmall, setIsSmall] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => setIsSmall(window.innerWidth < 640); // sm breakpoint
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
+
+  return isSmall;
+}
 
 function SectionTitle({ children }) {
   return (
@@ -43,10 +57,10 @@ export default function Projects() {
   const { repos, loading, error } = useGitHubRepos("CamiloCuenca");
   const [page, setPage] = useState(1);
   const perPage = 6;
+  const isSmallScreen = useIsSmallScreen();
 
   const filteredRepos = useMemo(() => {
     if (!repos) return [];
-    // Asignar imagen si es featured, si no null
     return repos.map(repo => ({
       ...repo,
       image: featuredRepos.find(f => f.name === repo.name)?.image || null,
@@ -65,39 +79,66 @@ export default function Projects() {
       {!loading && !error && paginatedRepos.length === 0 && (
         <p className="text-center text-gray-500">No hay proyectos destacados</p>
       )}
-      {/* Paginación */}
+
       {totalPages > 1 && (
-        <div className="flex justify-center mt-8 gap-2">
-          <button
-            onClick={() => setPage(page - 1)}
-            disabled={page === 1}
-            className="px-3 py-1 rounded bg-primary text-white disabled:opacity-50"
-          >
-            Anterior
-          </button>
-          {[...Array(totalPages)].map((_, i) => (
+        <div className="flex justify-center mt-8 overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
+          <div className="flex gap-1 sm:gap-2 px-1 min-w-max flex-wrap justify-center scroll-smooth snap-x">
+            {/* Botón Anterior */}
             <button
-              key={i}
-              onClick={() => setPage(i + 1)}
-              className={`px-3 py-1 rounded ${page === i + 1 ? 'bg-secondary text-white' : 'bg-gray-200 text-black'}`}
+              onClick={() => setPage(page - 1)}
+              disabled={page === 1}
+              className="px-2 sm:px-3 py-1 sm:py-2 rounded bg-primary text-white disabled:opacity-50 text-xs sm:text-sm min-w-[36px] sm:min-w-[40px] snap-start"
             >
-              {i + 1}
+              <span className="inline sm:hidden">←</span>
+              <span className="hidden sm:inline">Anterior</span>
             </button>
-          ))}
-          <button
-            onClick={() => setPage(page + 1)}
-            disabled={page === totalPages}
-            className="px-3 py-1 rounded bg-primary text-white disabled:opacity-50"
-          >
-            Siguiente
-          </button>
+
+            {/* Elipsis inicial */}
+            {page > (isSmallScreen ? 2 : 3) && (
+              <button className="px-1 sm:px-2 text-gray-400 cursor-default" disabled>…</button>
+            )}
+
+            {/* Botones de página */}
+            {Array.from({ length: totalPages }, (_, i) => i + 1)
+              .filter(i =>
+                i === 1 ||
+                i === totalPages ||
+                (isSmallScreen
+                  ? (i >= page - 1 && i <= page + 1)
+                  : (i >= page - 2 && i <= page + 2))
+              )
+              .map(i => (
+                <button
+                  key={i}
+                  onClick={() => setPage(i)}
+                  className={`px-2 sm:px-3 py-1 sm:py-2 rounded min-w-[36px] sm:min-w-[40px] text-xs sm:text-sm transition-colors duration-200 snap-center ${
+                    page === i
+                      ? 'bg-secondary text-white'
+                      : 'bg-gray-200 text-black hover:bg-primary/80 hover:text-white'
+                  }`}
+                  disabled={i === page}
+                >
+                  {i}
+                </button>
+              ))}
+
+            {/* Elipsis final */}
+            {page < totalPages - (isSmallScreen ? 1 : 2) && (
+              <button className="px-1 sm:px-2 text-gray-400 cursor-default" disabled>…</button>
+            )}
+
+            {/* Botón Siguiente */}
+            <button
+              onClick={() => setPage(page + 1)}
+              disabled={page === totalPages}
+              className="px-2 sm:px-3 py-1 sm:py-2 rounded bg-primary text-white disabled:opacity-50 text-xs sm:text-sm min-w-[36px] sm:min-w-[40px] snap-end"
+            >
+              <span className="inline sm:hidden">→</span>
+              <span className="hidden sm:inline">Siguiente</span>
+            </button>
+          </div>
         </div>
       )}
     </section>
   );
 }
-
-// Animaciones Tailwind personalizadas sugeridas:
-// .animate-fade-in { animation: fadeIn 0.7s both; }
-// .animate-fade-in-up { animation: fadeInUp 0.7s both; }
-// Agrega estas animaciones en tu tailwind.config.js o CSS si lo deseas.
