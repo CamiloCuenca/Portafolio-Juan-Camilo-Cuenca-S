@@ -5,7 +5,7 @@ import { RiTailwindCssFill } from "react-icons/ri";
 
 export default function Skills() {
     return (
-        <section className="max-w-4xl mx-auto p-6">
+        <section id="skills" className="max-w-4xl mx-auto p-6">
             <h2 className="text-2xl font-bold text-center mb-6">Mis Skills</h2>
 
             {/* Sección de Habilidades organizada en filas */}

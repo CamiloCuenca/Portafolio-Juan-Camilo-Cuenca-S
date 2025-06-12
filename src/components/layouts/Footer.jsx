@@ -5,7 +5,7 @@ export default function Footer() {
   const { copied, handleCopyEmail } = useCopyEmail();
 
   return (
-    <footer className="bg-purple-dark text-white text-base py-6">
+    <footer className="bg-quaternary text-white text-base py-6">
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-6">
         {/* Derechos de autor */}
         <p className="text-center md:text-left">

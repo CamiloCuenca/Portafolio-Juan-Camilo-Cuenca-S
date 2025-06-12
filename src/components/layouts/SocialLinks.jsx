@@ -5,7 +5,7 @@ export default function SocialLinks() {
   const { copied, handleCopyEmail } = useCopyEmail();
 
   return (
-    <div className="bg-purple-dark text-white text-lg p-4">
+    <div className="bg-quaternary text-white text-lg p-4">
       <div className="container mx-auto flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6">
         {/* GitHub */}
         <a

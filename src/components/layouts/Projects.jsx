@@ -1,79 +1,103 @@
 import useGitHubRepos from "../../hooks/useGitHubRepos";
-import Card from "../common/Card"; // Importar el componente Card
+import Card from "../common/Card";
+import { useMemo, useState } from "react";
 
-// Define los repositorios destacados con sus imágenes
+function SectionTitle({ children }) {
+  return (
+    <h1 className="text-3xl font-extrabold text-primary mb-8 text-center tracking-tight animate-fade-in">
+      {children}
+    </h1>
+  );
+}
+
+function ProjectsGrid({ repos }) {
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {repos.map(repo => (
+        <div key={repo.id} className="transition-transform duration-300 hover:scale-105 animate-fade-in-up">
+          <Card {...repo} fixedHeight={true} />
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function Loading() {
+  return <p className="text-center text-secondary animate-pulse">Cargando proyectos...</p>;
+}
+
+function Error({ message }) {
+  return <p className="text-center text-red-500 font-semibold">Error: {message}</p>;
+}
+
 const featuredRepos = [
-  {
-    name: "UniEventos_proyecto_final_Backend",
-    image: null, // No tiene imagen asignada
-  },
-  {
-    name: "UniEventos_proyecto_final_Frontend",
-    image: "/assets/img-Proyects/UniEventos.png",
-  },
-  {
-    name: "AppMisiontic-Movil",
-    image: null,
-  },
-  {
-    name: "PomoTimerFlow",
-    image: "/assets/img-Proyects/PomoTimerFlow.png",
-  },
-  {
-    name: "regex-validator",
-    image: "/assets/img-Proyects/regex-validator.png",
-  },
-  {
-    name: "Portafolio-Juan-Camilo-Cuenca-S",
-    image: "/assets/img-Proyects/PortafolioPrueba.png", // Imagen alojada en public/assets/
-  },
+  { name: "UniEventos_proyecto_final_Backend", image: null },
+  { name: "UniEventos_proyecto_final_Frontend", image: "/assets/img-Proyects/UniEventos.png" },
+  { name: "AppMisiontic-Movil", image: null },
+  { name: "PomoTimerFlow", image: "/assets/img-Proyects/PomoTimerFlow.png" },
+  { name: "regex-validator", image: "/assets/img-Proyects/regex-validator.png" },
+  { name: "Portafolio-Juan-Camilo-Cuenca-S", image: "/assets/img-Proyects/PortafolioPrueba.png" },
 ];
 
 export default function Projects() {
   const { repos, loading, error } = useGitHubRepos("CamiloCuenca");
+  const [page, setPage] = useState(1);
+  const perPage = 6;
 
-  if (loading) return <p className="text-center">Cargando repositorios...</p>;
-  if (error) return <p className="text-red-500 text-center">Error: {error}</p>;
-
-  // Filtra los repositorios destacados y les asigna la imagen si existe
-  const filteredRepos = repos
-    .filter(repo => featuredRepos.some(f => f.name === repo.name))
-    .map(repo => ({
+  const filteredRepos = useMemo(() => {
+    if (!repos) return [];
+    // Asignar imagen si es featured, si no null
+    return repos.map(repo => ({
       ...repo,
       image: featuredRepos.find(f => f.name === repo.name)?.image || null,
     }));
+  }, [repos]);
 
-  // Ordenar por fecha de creación (más reciente primero) y luego por estrellas
-  const sortedRepos = filteredRepos.sort((a, b) => {
-    const dateA = new Date(a.created_at);
-    const dateB = new Date(b.created_at);
-    if (dateB - dateA !== 0) return dateB - dateA;
-    return b.stargazers_count - a.stargazers_count; // Si tienen la misma fecha, ordenar por estrellas
-  });
+  const totalPages = Math.ceil(filteredRepos.length / perPage);
+  const paginatedRepos = filteredRepos.slice((page - 1) * perPage, page * perPage);
 
   return (
-    <div className="p-6">
+    <section id="projects" className="p-8 bg-white/80 rounded-2xl shadow-2xl max-w-7xl mx-auto my-12 animate-fade-in">
       <h1 className="text-2xl font-bold text-start mb-6">Mis Proyectos</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {sortedRepos.length > 0 ? (
-          sortedRepos.map(repo => (
-            <Card
-              key={repo.id}
-              name={repo.name}
-              description={repo.description}
-              url={repo.html_url}
-              homepage={repo.homepage}
-              language={repo.language}
-              stars={repo.stargazers_count}
-              createdAt={repo.created_at}
-              updatedAt={repo.updated_at}
-              image={repo.image}
-            />
-          ))
-        ) : (
-          <p className="text-center text-gray-500">No hay proyectos destacados</p>
-        )}
-      </div>
-    </div>
+      {loading && <Loading />}
+      {error && <Error message={error} />}
+      {!loading && !error && paginatedRepos.length > 0 && <ProjectsGrid repos={paginatedRepos} />}
+      {!loading && !error && paginatedRepos.length === 0 && (
+        <p className="text-center text-gray-500">No hay proyectos destacados</p>
+      )}
+      {/* Paginación */}
+      {totalPages > 1 && (
+        <div className="flex justify-center mt-8 gap-2">
+          <button
+            onClick={() => setPage(page - 1)}
+            disabled={page === 1}
+            className="px-3 py-1 rounded bg-primary text-white disabled:opacity-50"
+          >
+            Anterior
+          </button>
+          {[...Array(totalPages)].map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setPage(i + 1)}
+              className={`px-3 py-1 rounded ${page === i + 1 ? 'bg-secondary text-white' : 'bg-gray-200 text-black'}`}
+            >
+              {i + 1}
+            </button>
+          ))}
+          <button
+            onClick={() => setPage(page + 1)}
+            disabled={page === totalPages}
+            className="px-3 py-1 rounded bg-primary text-white disabled:opacity-50"
+          >
+            Siguiente
+          </button>
+        </div>
+      )}
+    </section>
   );
 }
+
+// Animaciones Tailwind personalizadas sugeridas:
+// .animate-fade-in { animation: fadeIn 0.7s both; }
+// .animate-fade-in-up { animation: fadeInUp 0.7s both; }
+// Agrega estas animaciones en tu tailwind.config.js o CSS si lo deseas.
