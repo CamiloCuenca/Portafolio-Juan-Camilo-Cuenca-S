@@ -6,8 +6,10 @@ export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <header className="bg-primary p-4 text-white">
-            <nav className="flex justify-between items-center max-w-9xl mx-auto">
+        <header className="w-full bg-primary p-4 text-white">
+
+            <nav className="flex justify-between items-center w-full max-w-screen-xl mx-auto px-4">
+
                 {/* Logo */}
                 <div className="flex-shrink-0">
                     <img className="h-10 w-auto sm:h-8 lg:h-12" src="/assets/Logo.svg" alt="Logo" />
@@ -52,9 +54,13 @@ export default function Header() {
                           Educación y Experiencia
                         </a>
                     </li>
+                    {/* Botón de descarga SOLO visible en móvil (menú abierto) */}
+                    <li className="block lg:hidden mt-4">
+                        <ButtonDownload />
+                    </li>
                 </ul>
 
-                {/* Botón de descarga */}
+                {/* Botón de descarga SOLO visible en escritorio */}
                 <div className="hidden lg:flex">
                     <ButtonDownload />
                 </div>

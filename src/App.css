@@ -1,58 +1,64 @@
 @import "tailwindcss";
 
+/* Variables de color */
 @theme {
-  --color-primary: #2563EB; /* azul principal */
-  --color-secondary: #3B82F6; /* azul acento */
-  --color-tertiary: #183153; /* azul profundo */
-  --color-quaternary: #1A2636; /* azul oscuro profesional */
-  --color-background: #E9F1FA; /* azul muy claro */
+  --color-primary: #2563EB;
+  --color-secondary: #3B82F6;
+  --color-tertiary: #183153;
+  --color-quaternary: #1A2636;
+  --color-background: #E9F1FA;
   --color-white: #FFFFFF;
   --color-black: #111827;
 }
 
 /* Estilos globales */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html, body {
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif; /* Cambia por la fuente que uses */
-  box-sizing: border-box;
-  scroll-behavior: smooth; /* Suaviza el scroll para una mejor UX */
-  background-color: var(--color-background); /* Color de fondo predeterminado */
-  color: var(--color-black); /* Color de texto predeterminado */
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+  background-color: var(--color-background);
+  color: var(--color-black);
+  width: 100%;
+  overflow-x: hidden; /* ⚠️ Esto es crucial para evitar espacios laterales */
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Esto separa el header y el footer */
 }
 
 /* App contenedor general */
 .App {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Para que el contenido no esté totalmente centrado */
-  align-items: center;
-  min-height: 100vh; /* Asegura que ocupe toda la altura de la pantalla */
+  min-height: 100vh;
+  width: 100%;
 }
 
-/* Contenedor de main para asegurarse de que el contenido se centre */
+/* Contenedor principal */
 main {
+  flex: 1;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+/* Footer y Header deben ocupar todo el ancho */
+header,
 footer {
   width: 100%;
 }
 
-
-/* Estilo responsivo general para contenedores */
+/* Contenedor centrado y limitado */
 .container {
   width: 100%;
-  max-width: 1280px; /* Cambia según tus necesidades */
-  margin-left: auto;  /* Para centrar horizontalmente */
-  margin-right: auto; /* Para centrar horizontalmente */
-  padding-left: 1rem; /* Ajusta el espaciado lateral */
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
   padding-right: 1rem;
 }
