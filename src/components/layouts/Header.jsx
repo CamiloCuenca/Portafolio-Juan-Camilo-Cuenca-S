@@ -56,13 +56,13 @@ export default function Header() {
                     </li>
                     {/* Botón de descarga SOLO visible en móvil (menú abierto) */}
                     <li className="block lg:hidden mt-4">
-                        <ButtonDownload />
+                        <ButtonDownload href={"/HV Juan Camilo Cuenca Sepúlveda.pdf"} Name={"Visualizar Cv"} />
                     </li>
                 </ul>
 
                 {/* Botón de descarga SOLO visible en escritorio */}
                 <div className="hidden lg:flex">
-                    <ButtonDownload />
+                    <ButtonDownload href={"/HV Juan Camilo Cuenca Sepúlveda.pdf"}   Name={"Visualizar Cv"} />
                 </div>
             </nav>
         </header>
