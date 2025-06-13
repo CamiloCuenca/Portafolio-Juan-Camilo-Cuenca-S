@@ -6,6 +6,8 @@ import Projects from '../components/layouts/Projects';
 import Education from '../components/layouts/Education';
 import Experience from '../components/layouts/Experience';
 import GitHubStats from '../components/layouts/GitHubStats';
+import Certificates from '../components/layouts/Certificates';
+
 
 export default function Home() {
   return (
@@ -68,6 +70,7 @@ export default function Home() {
         {/* Sección GitHubStats oculta inicialmente */}
         <div id="github-stats-section" style={{ display: 'none' }} className="mt-8">
           <GitHubStats />
+          <Certificates />
         </div>
       </div>
     </div>
