@@ -17,27 +17,27 @@ const CERTIFICATES = [
         nombre: "Programming Fundamentals in Kotlin",
         entidad: "Meta/Coursera",
         fecha: "Expedición: ago. 2024",
-        url: "",
+        url: "/assets/Pdf-Certificates/Certificado-Programming-Fundamentals-in-Kotlin.pdf",
     },
         {
         nombre: "Control de versión (GIT)",
         entidad: "Meta/Coursera",
         fecha: "Expedición: jul. 2024",
-        url: "",
+        url: "/assets/Pdf-Certificates/Certificado-Version-Control.pdf",
     },
 
      {
         nombre: "Cómo resolver problemas y tomar decisiones con eficacia",
         entidad: "University of California, Irvine - The Paul Merage School of Business/Coursera",
         fecha: "Expedición: jul. 2024",
-        url: "",
+        url: "/assets/Pdf-Certificates/Certificado-Como-resolver-problemas-y-tomar-decisiones-con-eficiencia.pdf",
     },
 
       {
         nombre: "Introducción al desarrollo Back-end",
         entidad: "Meta/Coursera",
         fecha: "Expedición: jul. 2024",
-        url: "",
+        url: "/assets/Pdf-Certificates/Certificado-introduccion-al-desarollo-de-back-end.pdf",
     },
 
       {
