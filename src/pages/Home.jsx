@@ -69,8 +69,8 @@ export default function Home() {
         </div>
         {/* Sección GitHubStats oculta inicialmente */}
         <div id="github-stats-section" style={{ display: 'none' }} className="mt-8">
-          <GitHubStats />
           <Certificates />
+          <GitHubStats />
         </div>
       </div>
     </div>
