@@ -71,7 +71,7 @@ export default function Projects() {
   const paginatedRepos = filteredRepos.slice((page - 1) * perPage, page * perPage);
 
   return (
-    <section id="projects" className="p-8 bg-white/80 rounded-2xl shadow-2xl max-w-7xl mx-auto my-12 animate-fade-in">
+    <section id="projects" className="p-8 rounded-2xl  max-w-7xl mx-auto my-12 animate-fade-in">
       <h1 className="text-2xl font-bold text-start mb-6">Mis Proyectos</h1>
       {loading && <Loading />}
       {error && <Error message={error} />}

@@ -11,7 +11,17 @@ import Certificates from '../components/layouts/Certificates';
 
 export default function Home() {
   return (
-    <div className="bg-gray-100 min-h-screen overflow-x-hidden ">
+    <div
+      className="bg-background min-h-screen overflow-x-hidden "
+      style={{
+        position: 'relative',
+        zIndex: 1,
+        backgroundImage:
+          `linear-gradient(to right, rgba(24,49,83,0.06) 3px, transparent 1px),` +
+          `linear-gradient(to bottom, rgba(24,49,83,0.06) 3px, transparent 1px)` ,
+        backgroundSize: '40px 40px',
+      }}
+    >
       {/* Hero Section */}
       <div className="w-full">
         <HeroSection />
@@ -27,12 +37,12 @@ export default function Home() {
         {/* About Me and Skills Section */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 gap-y-8 mb-12">
           {/* About Me */}
-          <div className="p-4 bg-white shadow-md rounded-2xl hover:shadow-xl hover:scale-105 transition-transform duration-300">
+          <div className="p-4  rounded-2xl ">
             <AboutMe />
           </div>
 
           {/* Skills */}
-          <div className="p-4 bg-white shadow-md rounded-2xl flex flex-col justify-between hover:shadow-xl hover:scale-105 transition-transform duration-300">
+          <div className="p-4  rounded-2xl flex flex-col justify-between">
             <Skills />
           </div>
         </div>
@@ -40,38 +50,26 @@ export default function Home() {
         {/* Education and Experience Section */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 gap-y-8 mb-12">
           {/* Education */}
-          <div className="p-4 bg-white shadow-md rounded-2xl hover:shadow-xl hover:scale-105 transition-transform duration-300">
+          <div className="p-4  rounded-2xl ">
             <Education />
           </div>
 
           {/* Experience */}
-          <div className="p-4 bg-white shadow-md rounded-2xl hover:shadow-xl hover:scale-105 transition-transform duration-300">
+          <div className="p-4 rounded-2xl">
             <Experience />
           </div>
         </div>
 
         {/* Projects Section */}
-        <div className="p-4 bg-white shadow-md rounded-2xl hover:shadow-xl ">
+        <div className="p-4 rounded-2xl  ">
           <Projects />
         </div>
-        {/* Botón Saber más sobre mí */}
-        <div className="flex justify-center mt-8 mb-8">
-          <button
-            id="show-github-stats-btn"
-            className="bg-primary text-white px-6 py-2 rounded-xl font-semibold shadow hover:bg-secondary transition-colors duration-300"
-            onClick={() => {
-              const stats = document.getElementById('github-stats-section');
-              if (stats) stats.style.display = stats.style.display === 'none' ? 'block' : 'none';
-            }}
-          >
-          Más sobre mí
-          </button>
-        </div>
-        {/* Sección GitHubStats oculta inicialmente */}
-        <div id="github-stats-section" style={{ display: 'none' }} className="mt-8">
+
+
+        
           <Certificates />
           <GitHubStats />
-        </div>
+        
       </div>
     </div>
   );
