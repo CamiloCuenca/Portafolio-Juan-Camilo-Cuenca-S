@@ -67,8 +67,8 @@ export default function Home() {
 
 
         
-          <Certificates />
-          <GitHubStats />
+        <Certificates />
+         
         
       </div>
     </div>

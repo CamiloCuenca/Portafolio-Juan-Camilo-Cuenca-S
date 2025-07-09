@@ -23,7 +23,7 @@ export default function Certificates() {
 
     return (
         <div className="w-full flex flex-col">
-            <h2 className="text-3xl font-bold text-gray-800 mb-6 text-left pl-4">Certificates</h2>
+            <h2 className="text-3xl font-bold text-gray-800 mb-6 text-left pl-4">Certificados</h2>
             {totalPages > 1 && (
                 <div className="flex justify-center mt-2 mb-8 overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
                     <div className="flex gap-1 sm:gap-2 px-1 min-w-max flex-wrap justify-center scroll-smooth snap-x">
