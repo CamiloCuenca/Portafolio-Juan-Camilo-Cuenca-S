@@ -75,9 +75,13 @@ const skills = [
 ];
 
 const SkillIcon = ({ icon, name }) => (
-  <div className="group relative flex flex-col items-center justify-center p-4 transition-transform duration-300 hover:scale-110">
-    <img src={icon} alt={name} className="h-12 w-12 object-contain transition-all duration-300 group-hover:filter group-hover:drop-shadow-lg" />
-    <span className="absolute -bottom-2 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100">
+  <div className="group relative flex flex-col items-center justify-center p-2 sm:p-3 md:p-4 transition-transform duration-300 hover:scale-110 w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28">
+    <img 
+      src={icon} 
+      alt={name} 
+      className="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 object-contain transition-all duration-300 group-hover:filter group-hover:drop-shadow-lg" 
+    />
+    <span className="absolute -bottom-2 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap">
       {name}
     </span>
   </div>

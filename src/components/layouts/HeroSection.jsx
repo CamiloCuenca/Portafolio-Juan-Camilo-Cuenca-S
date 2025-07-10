@@ -11,11 +11,12 @@ export default function HeroSection() {
       </div>
 
       {/* Imagen de Hero */}
-      <div className="w-full max-w-2xl">
+      <div className="flex-1 flex justify-center items-center min-w-[250px]">
         <img
-          className="w-full h-auto"
+          className="w-full h-auto max-w-5xl min-w-[250px] min-h-[120px] object-contain"
           src="/assets/HeroSection.svg"
           alt="Hero Section"
+          style={{ maxHeight: '70vh' }}
         />
       </div>
     </div>
