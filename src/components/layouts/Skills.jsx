@@ -75,9 +75,13 @@ const skills = [
 ];
 
 const SkillIcon = ({ icon, name }) => (
-  <div className="group relative flex flex-col items-center justify-center p-4 transition-transform duration-300 hover:scale-110">
-    <img src={icon} alt={name} className="h-12 w-12 object-contain transition-all duration-300 group-hover:filter group-hover:drop-shadow-lg" />
-    <span className="absolute -bottom-2 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100">
+  <div className="group relative flex flex-col items-center justify-center p-2 sm:p-3 md:p-4 transition-transform duration-300 hover:scale-110 w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28">
+    <img 
+      src={icon} 
+      alt={name} 
+      className="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 object-contain transition-all duration-300 group-hover:filter group-hover:drop-shadow-lg" 
+    />
+    <span className="absolute -bottom-2 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap">
       {name}
     </span>
   </div>
@@ -89,7 +93,7 @@ export default function Skills() {
       <h2 className="text-2xl font-bold text-center mb-8">Mis Skills</h2>
       <div className="space-y-8 md:space-y-12">
         {/* Languages */}
-        <div className="bg-white p-4 md:p-6 rounded-lg shadow-2xl transition-shadow hover:shadow-xl">
+        <div className="bg-white p-4 md:p-6 rounded-lg shadow-2xl transition-shadow hover:shadow-xl ">
           <h3 className="text-lg font-semibold mb-4 text-gray-800">Languages</h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 justify-items-center">
             {skills.filter(s => s.section === "Languages").map(skill => (
