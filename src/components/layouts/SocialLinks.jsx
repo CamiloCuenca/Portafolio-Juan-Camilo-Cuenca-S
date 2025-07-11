@@ -1,5 +1,7 @@
 import { FiGithub, FiLinkedin, FiMail, FiCopy } from "react-icons/fi";
 import { useCopyEmail } from "../../hooks/useCopyEmail";
+import React from "react";
+
 
 export default function SocialLinks() {
   const { copied, handleCopyEmail } = useCopyEmail();

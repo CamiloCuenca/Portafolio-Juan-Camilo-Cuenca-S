@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function HeroSection() {
   return (
     <div className="bg-tertiary py-6 px-4 flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-10 lg:gap-20">

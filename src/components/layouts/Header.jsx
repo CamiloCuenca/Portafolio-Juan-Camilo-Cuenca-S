@@ -1,6 +1,8 @@
+import React from "react";
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi"; // Íconos de menú
 import ButtonDownload from "../common/ButtonDownload";
+
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);

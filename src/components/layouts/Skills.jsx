@@ -1,3 +1,7 @@
+import PropTypes from "prop-types";
+import React from "react";
+
+
 const skills = [
   // Languages
   {
@@ -74,6 +78,8 @@ const skills = [
   }
 ];
 
+
+
 const SkillIcon = ({ icon, name }) => (
   <div className="group relative flex flex-col items-center justify-center p-2 sm:p-3 md:p-4 transition-transform duration-300 hover:scale-110 w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28">
     <img 
@@ -123,3 +129,8 @@ export default function Skills() {
     </section>
   );
 }
+
+SkillIcon.propTypes = {
+  icon: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+};

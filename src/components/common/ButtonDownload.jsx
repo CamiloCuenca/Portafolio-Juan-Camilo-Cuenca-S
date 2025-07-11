@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { FaDownload } from 'react-icons/fa';
 
 export default function ButtonDownload({ href, Name = "Descargar", color = "bg-tertiary" }) {
@@ -14,3 +15,9 @@ export default function ButtonDownload({ href, Name = "Descargar", color = "bg-t
         </a>
     );
 }
+
+ButtonDownload.propTypes = {
+  href: PropTypes.string.isRequired,
+  Name: PropTypes.string,
+  color: PropTypes.string,
+};
