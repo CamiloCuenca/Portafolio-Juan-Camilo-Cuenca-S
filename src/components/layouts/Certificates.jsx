@@ -1,3 +1,4 @@
+import React from 'react';
 import CardCertificates from "../common/CardCertificates";
 import useCertificates from '../../hooks/usecertificates';
 import { useState, useMemo, useEffect } from 'react';

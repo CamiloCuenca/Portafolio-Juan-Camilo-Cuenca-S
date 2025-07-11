@@ -1,3 +1,4 @@
+import React from "react";
 import HeroSection from '../components/layouts/HeroSection';
 import Skills from '../components/layouts/Skills';
 import SocialLinks from '../components/layouts/SocialLinks';
@@ -5,8 +6,8 @@ import AboutMe from '../components/layouts/AboutMe';
 import Projects from '../components/layouts/Projects';
 import Education from '../components/layouts/Education';
 import Experience from '../components/layouts/Experience';
-import GitHubStats from '../components/layouts/GitHubStats';
 import Certificates from '../components/layouts/Certificates';
+import ScrollToTopButton from "../components/common/ScrollToTopButton";
 
 
 export default function Home() {
@@ -36,6 +37,8 @@ export default function Home() {
       <div className="container mx-auto px-6 mt-12 max-w-5xl">
         {/* About Me and Skills Section */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 gap-y-8 mb-12">
+        
+        
           {/* About Me */}
           <div className="p-4  rounded-2xl ">
             <AboutMe />
@@ -71,6 +74,8 @@ export default function Home() {
          
         
       </div>
+
+       <ScrollToTopButton />
     </div>
   );
 }

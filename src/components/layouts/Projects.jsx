@@ -1,6 +1,9 @@
+import React from "react";
 import useGitHubRepos from "../../hooks/useGitHubRepos";
 import Card from "../common/Card";
 import { useMemo, useState, useEffect } from "react";
+import PropTypes from "prop-types";
+
 
 // Hook para detectar si es una pantalla pequeña (menor a 640px)
 function useIsSmallScreen() {
@@ -16,13 +19,7 @@ function useIsSmallScreen() {
   return isSmall;
 }
 
-function SectionTitle({ children }) {
-  return (
-    <h1 className="text-3xl font-extrabold text-primary mb-8 text-center tracking-tight animate-fade-in">
-      {children}
-    </h1>
-  );
-}
+
 
 function ProjectsGrid({ repos }) {
   return (
@@ -142,3 +139,10 @@ export default function Projects() {
     </section>
   );
 }
+
+ProjectsGrid.propTypes = {
+  repos: PropTypes.array.isRequired, 
+}
+Error.propTypes = {
+  message: PropTypes.string.isRequired,
+};

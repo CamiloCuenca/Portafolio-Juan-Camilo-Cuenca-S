@@ -1,7 +1,9 @@
+import React from "react";
 import { 
   SiJavascript, SiTypescript, SiPython, SiPhp, SiC, SiCplusplus, SiHtml5, SiCss3, SiGo, SiSwift, SiKotlin 
 } from "react-icons/si";
 import { FaJava, FaGithub, FaGlobe } from "react-icons/fa"; // Usa FontAwesome si no existe en SimpleIcons
+import PropTypes from "prop-types";
 
 // Diccionario de íconos de lenguajes
 const languageIcons = {
@@ -19,10 +21,10 @@ const languageIcons = {
   Kotlin: <SiKotlin className="text-purple-600 text-lg" />,
 };
 
-export default function Card({ name, description, url, homepage, language, stargazers_count, stars, created_at, createdAt, updated_at, updatedAt, image, fixedHeight }) {
+
+export default function Card({ name, description, homepage, language, stargazers_count, stars, updated_at, updatedAt, image, fixedHeight }) {
   // Compatibilidad para diferentes nombres de props
   const starsValue = typeof stars !== 'undefined' ? stars : (typeof stargazers_count !== 'undefined' ? stargazers_count : 0);
-  const created = createdAt || created_at;
   const updated = updatedAt || updated_at;
 
   return (
@@ -64,14 +66,29 @@ export default function Card({ name, description, url, homepage, language, starg
       {/* Botones de enlace */}
       <div className="mt-4 flex gap-3">
         {homepage && (
-          <a href={homepage} target="_blank" className="text-blue-500 text-sm font-medium hover:underline flex items-center gap-1">
+          <a href={homepage} target="_blank" rel="noreferrer" className="text-blue-500 text-sm font-medium hover:underline flex items-center gap-1">
             <FaGlobe className="inline-block" /> Ver Proyecto
           </a>
         )}
-        <a href={`https://github.com/${name ? `CamiloCuenca/${name}` : ''}`} target="_blank" className="text-blue-500 text-sm font-medium hover:underline flex items-center gap-1">
+        <a href={`https://github.com/${name ? `CamiloCuenca/${name}` : ''}`} target="_blank" rel="noreferrer" className="text-blue-500 text-sm font-medium hover:underline flex items-center gap-1">
           <FaGithub className="inline-block" /> Código en GitHub
         </a>
       </div>
     </div>
   );
+}
+
+Card.propTypes = {
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string,
+  homepage: PropTypes.string,
+  language: PropTypes.string,
+  stargazers_count: PropTypes.number,
+  stars: PropTypes.number,
+  created_at: PropTypes.string,
+  createdAt: PropTypes.string,
+  updated_at: PropTypes.string,
+  updatedAt: PropTypes.string,
+  image: PropTypes.string,
+  fixedHeight: PropTypes.bool,
 }
