@@ -1,0 +1,20 @@
+/* ScrollToTopButton.css */
+
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 9999; /* Súper alto para que nunca quede detrás */
+}
+
+
+.scroll-to-top:hover {
+  background: #0056b3;
+}
+
+@media (min-width: 768px) {
+  .scroll-to-top {
+    display: none;
+  }
+}
