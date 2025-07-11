@@ -2,9 +2,9 @@ name: Lint Check
 
 on:
   pull_request:
-    branches: [ main ]
+    branches: [ main , production ]
   push:
-    branches: [ main ]
+    branches: [ main , production ]
 
 jobs:
   lint:
