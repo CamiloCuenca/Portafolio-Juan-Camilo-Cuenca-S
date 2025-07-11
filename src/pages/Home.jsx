@@ -7,6 +7,7 @@ import Projects from '../components/layouts/Projects';
 import Education from '../components/layouts/Education';
 import Experience from '../components/layouts/Experience';
 import Certificates from '../components/layouts/Certificates';
+import ScrollToTopButton from "../components/common/ScrollToTopButton";
 
 
 export default function Home() {
@@ -36,6 +37,8 @@ export default function Home() {
       <div className="container mx-auto px-6 mt-12 max-w-5xl">
         {/* About Me and Skills Section */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 gap-y-8 mb-12">
+        
+        
           {/* About Me */}
           <div className="p-4  rounded-2xl ">
             <AboutMe />
@@ -71,6 +74,8 @@ export default function Home() {
          
         
       </div>
+
+       <ScrollToTopButton />
     </div>
   );
 }
