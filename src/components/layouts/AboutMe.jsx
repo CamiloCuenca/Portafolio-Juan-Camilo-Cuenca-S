@@ -1,4 +1,5 @@
-import { FiGithub, FiLinkedin, FiMail, FiCopy, FiDownload } from "react-icons/fi";
+import React from "react";
+import { FiGithub, FiLinkedin, FiMail, FiCopy } from "react-icons/fi";
 import { useCopyEmail } from "../../hooks/useCopyEmail";
 import ButtonDownload from "../common/ButtonDownload";
 

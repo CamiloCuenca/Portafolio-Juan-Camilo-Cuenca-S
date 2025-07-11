@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { pdfjs, Document, Page } from 'react-pdf';
 import pdfWorker from 'pdfjs-dist/build/pdf.worker.min?url';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import 'react-pdf/dist/esm/Page/TextLayer.css';
 import ButtonDownload from './ButtonDownload';
 import { FaCertificate } from 'react-icons/fa';
+import PropTypes from "prop-types";
+
 
 pdfjs.GlobalWorkerOptions.workerSrc = pdfWorker;
 
@@ -43,3 +45,10 @@ export default function CardCertificates({ nombre, entidad, fecha, url }) {
     </div>
   );
 }
+
+CardCertificates.propTypes = {
+  nombre: PropTypes.string.isRequired,
+  entidad: PropTypes.string.isRequired,
+  fecha: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+};

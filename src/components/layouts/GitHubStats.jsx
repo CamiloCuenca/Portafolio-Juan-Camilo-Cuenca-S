@@ -2,9 +2,6 @@ import React from "react";
 
 export default function GithubStats() {
     // Año actual y años anteriores para el selector
-    const currentYear = new Date().getFullYear();
-    const years = Array.from({ length: 5 }, (_, i) => currentYear - i);
-    const [selectedYear, setSelectedYear] = React.useState(currentYear);
 
     return (
       <div className="max-w-4xl mx-auto">

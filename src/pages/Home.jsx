@@ -1,3 +1,4 @@
+import React from "react";
 import HeroSection from '../components/layouts/HeroSection';
 import Skills from '../components/layouts/Skills';
 import SocialLinks from '../components/layouts/SocialLinks';
@@ -5,7 +6,6 @@ import AboutMe from '../components/layouts/AboutMe';
 import Projects from '../components/layouts/Projects';
 import Education from '../components/layouts/Education';
 import Experience from '../components/layouts/Experience';
-import GitHubStats from '../components/layouts/GitHubStats';
 import Certificates from '../components/layouts/Certificates';
 
 
