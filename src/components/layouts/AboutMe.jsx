@@ -14,51 +14,62 @@ export default function AboutMe() {
                 <br />
                 A través del programa <strong>MisionTic 2022</strong>, he podido fortalecer mis habilidades técnicas y aprender a trabajar de manera ágil y efectiva en proyectos colaborativos. Estoy siempre en busca de nuevos desafíos para seguir creciendo profesionalmente.
             </p>
-            <div className="bg-white p-6 mt-3 rounded-lg shadow-2xl">
-                <h2 className="text-lg font-semibold mb-4 text-quaternary">Mis Redes y Contacto</h2>
-                <div className="flex flex-wrap gap-4 items-center justify-center">
-                    {/* GitHub */}
-                    <a
-                        href="https://github.com/CamiloCuenca"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center space-x-2 px-4 py-2 rounded-lg bg-quaternary text-white hover:bg-primary transition-colors"
-                    >
-                        <FiGithub />
-                        <span className="hidden sm:inline">GitHub</span>
-                    </a>
-                    {/* LinkedIn */}
-                    <a
-                        href="https://www.linkedin.com/in/juan-camilo-cuenca-sepulveda/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center space-x-2 px-4 py-2 rounded-lg bg-quaternary text-white hover:bg-primary transition-colors"
-                    >
-                        <FiLinkedin />
-                        <span className="hidden sm:inline">LinkedIn</span>
-                    </a>
-                    {/* Email */}
-                    <div className="flex items-center space-x-2 px-4 py-2 rounded-lg bg-quaternary text-white">
-                        <FiMail />
-                        <span className="text-sm md:text-base select-all">camilocuencadev@gmail.com</span>
-                        <button
-                            onClick={handleCopyEmail}
-                            className="hover:text-gray-400"
-                            title="Copiar correo"
-                        >
-                            <FiCopy />
-                        </button>
-                        {copied && (
-                            <span className="text-green-400 text-sm ml-2">¡Copiado!</span>
-                        )}
-                    </div>
-                    {/* Descargar CV */}
-                     {/* Botón de descarga SOLO visible en escritorio */}
-                        <div className="hidden lg:flex">
-                                       <ButtonDownload color="bg-primary" href={"/HV Juan Camilo Cuenca Sepúlveda.pdf"}   Name={"Visualizar CV"} />
-                        </div>
-                </div>
-            </div>
+<div className="bg-white p-6 mt-3 rounded-lg shadow-2xl max-w-lg mx-auto">
+  <h2 className="text-lg font-semibold mb-6 text-quaternary text-center">
+    Mis Redes y Contacto
+  </h2>
+
+  {/* Fila: GitHub + LinkedIn */}
+  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+    <a
+      href="https://github.com/CamiloCuenca"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center gap-2 px-4 py-2 rounded-full border-2 border-quaternary text-quaternary hover:bg-quaternary hover:text-white transition"
+    >
+      <FiGithub size={24} />
+      <span>GitHub</span>
+    </a>
+
+    <a
+      href="https://www.linkedin.com/in/juan-camilo-cuenca-sepulveda/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center gap-2 px-4 py-2 rounded-full border-2 border-quaternary text-quaternary hover:bg-quaternary hover:text-white transition"
+    >
+      <FiLinkedin size={24} />
+      <span>LinkedIn</span>
+    </a>
+  </div>
+
+  {/* Correo */}
+  <div className="flex items-center gap-2 justify-center mt-4 px-4 py-2 rounded-full border-2 border-quaternary text-quaternary">
+    <FiMail size={20} />
+    <span className="text-sm select-all">camilocuencadev@gmail.com</span>
+    <button
+      onClick={handleCopyEmail}
+      className="hover:text-primary transition"
+      title="Copiar correo"
+    >
+      <FiCopy size={18} />
+    </button>
+    {copied && (
+      <span className="text-green-500 text-xs ml-2">¡Copiado!</span>
+    )}
+  </div>
+
+  {/* Botón Descargar CV */}
+  <div className="flex justify-center mt-6">
+    <ButtonDownload
+      color="bg-primary"
+      href={"/HV Juan Camilo Cuenca Sepúlveda.pdf"}
+      Name={"Visualizar CV"}
+    />
+  </div>
+</div>
+
+
+
         </div>
     );
 }

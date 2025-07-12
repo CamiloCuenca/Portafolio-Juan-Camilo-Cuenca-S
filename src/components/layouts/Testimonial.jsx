@@ -1,0 +1,59 @@
+import React, { useState } from 'react';
+
+export default function Testimonial() {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const fullText = `
+Juan Camilo ha sido un gran compañero en el voluntariado de Inspiranza en el que colaboramos. 
+Como desarrollador full stack móvil y estudiante universitario, demuestra una gran responsabilidad, disposición al trabajo en equipo y una actitud de aprendizaje constante.
+
+Asume sus tareas de forma autónoma y siempre busca que su código esté alineado con los estándares del proyecto. Cuando se enfrenta a un desafío técnico, no se detiene: investiga, prueba soluciones y, si no encuentra la respuesta, comparte todo lo que ha aprendido para fomentar la colaboración en el equipo y generar nuevas ideas.
+
+Juan Camilo es una persona con iniciativa, confiable y con muy buenas habilidades para colaborar, aprender y adaptarse.
+  `;
+
+  const shortText = `
+Juan Camilo ha sido un gran compañero en el voluntariado de Inspiranza en el que colaboramos. 
+Como desarrollador full stack móvil y estudiante universitario, demuestra una gran responsabilidad, disposición al trabajo en equipo y una actitud de aprendizaje constante...
+  `;
+
+  return (
+    <div className="w-full flex flex-col m-2">
+        <h1 className="text-3xl font-bold text-gray-800 mb-6 text-left pl-4">Recomendaciones y Testimonios</h1>
+
+    <div className="max-w-3xl mx-auto p-4 bg-white">
+
+      {/* Header: Foto + Info */}
+      <div className="flex items-start gap-4">
+        <img
+          src="https://media.licdn.com/dms/image/v2/D4D03AQEVqIThXcznyw/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1720613213820?e=1757548800&v=beta&t=LWbvxEJRx8ZBjlz0_eJ_tkwf4z2IfY4ax43JwVSN33U"
+          alt="Jazmín Rincón Rodríguez"
+          className="w-14 h-14 rounded-full object-cover"
+        />
+
+        <div>
+          <h2 className="text-base font-semibold text-gray-800">Jazmín Rincón Rodríguez </h2>
+          <h3 className="text-sm text-gray-600">Liderazgo en Proyectos Tecnológicos</h3>
+          <p className="text-xs text-gray-500">
+            9 de abril de 2025, Jazmín trabajaba con Juan Camilo en el mismo equipo
+          </p>
+        </div>
+      </div>
+
+      {/* Testimonio */}
+      <div className="mt-4 text-sm text-gray-800 text-justify">
+        <p className="whitespace-pre-line leading-relaxed">
+          {isExpanded ? fullText : shortText}
+        </p>
+
+        <button
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="text-primary font-semibold mt-2 hover:underline"
+        >
+          {isExpanded ? 'Ver menos' : 'Ver más'}
+        </button>
+      </div>
+    </div>
+    </div>
+  );
+}

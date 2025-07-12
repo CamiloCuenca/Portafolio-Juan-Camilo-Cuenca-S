@@ -8,7 +8,7 @@ import Education from '../components/layouts/Education';
 import Experience from '../components/layouts/Experience';
 import Certificates from '../components/layouts/Certificates';
 import ScrollToTopButton from "../components/common/ScrollToTopButton";
-
+import Testimonial from "../components/layouts/Testimonial";
 
 export default function Home() {
   return (
@@ -71,6 +71,8 @@ export default function Home() {
 
         
         <Certificates />
+
+        <Testimonial />
          
         
       </div>
