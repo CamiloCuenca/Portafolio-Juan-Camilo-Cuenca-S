@@ -2,6 +2,8 @@
 
 Este es el portafolio personal de Juan Camilo Cuenca Sepúlveda, desarrollado con React, Vite, TailwindCSS. Aquí encontrarás información sobre mi experiencia, proyectos, habilidades, certificados y más. ✨
 
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/CamiloCuenca/Portafolio-Juan-Camilo-Cuenca-S)
+
 ## Características 🛠️
 - 📁 Visualización de proyectos destacados con paginador responsivo.
 - 📄 Sección de certificados con visor PDF integrado y paginación.
