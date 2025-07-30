@@ -25,14 +25,16 @@ Como desarrollador full stack móvil y estudiante universitario, demuestra una g
 
       {/* Header: Foto + Info */}
       <div className="flex items-start gap-4">
+        <a href="https://www.linkedin.com/in/jazminrr/">
         <img
           src="https://media.licdn.com/dms/image/v2/D4D03AQEVqIThXcznyw/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1720613213820?e=1757548800&v=beta&t=LWbvxEJRx8ZBjlz0_eJ_tkwf4z2IfY4ax43JwVSN33U"
           alt="Jazmín Rincón Rodríguez"
-          className="w-14 h-14 rounded-full object-cover"
+          className="w-14 h-14 rounded-full object-cover"   
         />
+        </a>
 
         <div>
-          <h2 className="text-base font-semibold text-gray-800">Jazmín Rincón Rodríguez </h2>
+          <a href='https://www.linkedin.com/in/jazminrr/' className="text-base font-semibold text-gray-800">Jazmín Rincón Rodríguez </a>
           <h3 className="text-sm text-gray-600">Liderazgo en Proyectos Tecnológicos</h3>
           <p className="text-xs text-gray-500">
             9 de abril de 2025, Jazmín trabajaba con Juan Camilo en el mismo equipo
