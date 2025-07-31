@@ -87,7 +87,7 @@ const SkillIcon = ({ icon, name }) => (
       alt={name} 
       className="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 object-contain transition-all duration-300 group-hover:filter group-hover:drop-shadow-lg" 
     />
-    <span className="absolute -bottom-2 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap">
+    <span className="absolute -bottom-2 scale-0 transition-all rounded bg-gray-800 p-2 text-caption text-white group-hover:scale-100 whitespace-nowrap">
       {name}
     </span>
   </div>
@@ -96,11 +96,11 @@ const SkillIcon = ({ icon, name }) => (
 export default function Skills() {
   return (
     <section id="skills" className="max-w-4xl mx-auto p-4 md:p-6">
-      <h2 className="text-2xl font-bold text-center mb-8">Mis Skills</h2>
-      <div className="space-y-8 md:space-y-12">
+      <h2 className="text-heading-2 text-center mb-8">Mis Skills</h2>
+      <div className="space-y-8 md:space-y-10">
         {/* Languages */}
         <div className="bg-white p-4 md:p-6 rounded-lg shadow-2xl transition-shadow hover:shadow-xl ">
-          <h3 className="text-lg font-semibold mb-4 text-gray-800">Languages</h3>
+          <h3 className="text-heading-4 mb-4 text-gray-800">Languages</h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 justify-items-center">
             {skills.filter(s => s.section === "Languages").map(skill => (
               <SkillIcon key={skill.name} icon={skill.icon} name={skill.name} />
@@ -109,7 +109,7 @@ export default function Skills() {
         </div>
         {/* Frameworks */}
         <div className="bg-white p-4 md:p-6 rounded-lg shadow-2xl transition-shadow hover:shadow-xl">
-          <h3 className="text-lg font-semibold mb-4 text-gray-800">Frameworks</h3>
+          <h3 className="text-heading-4 mb-4 text-gray-800">Frameworks</h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 justify-items-center">
             {skills.filter(s => s.section === "Frameworks").map(skill => (
               <SkillIcon key={skill.name} icon={skill.icon} name={skill.name} />
@@ -118,7 +118,7 @@ export default function Skills() {
         </div>
         {/* Tools */}
         <div className="bg-white p-4 md:p-6 rounded-lg shadow-2xl transition-shadow hover:shadow-xl">
-          <h3 className="text-lg font-semibold mb-4 text-gray-800">Tools</h3>
+          <h3 className="text-heading-4 mb-4 text-gray-800">Tools</h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 justify-items-center">
             {skills.filter(s => s.section === "Tools").map(skill => (
               <SkillIcon key={skill.name} icon={skill.icon} name={skill.name} />

@@ -5,7 +5,7 @@ export default function GithubStats() {
 
     return (
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-2xl font-bold mb-3 text-start">GitHub Stats</h2>
+        <h2 className="text-heading-2 mb-3 text-start">GitHub Stats</h2>
         <div className=" p-10 flex flex-col items-center gap-6">
           <div className="flex flex-col sm:flex-row gap-4 w-full justify-center items-center">
             <img
