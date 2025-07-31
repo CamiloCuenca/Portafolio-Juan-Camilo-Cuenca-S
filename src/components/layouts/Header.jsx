@@ -31,7 +31,7 @@ export default function Header() {
             ${isOpen ? "block" : "hidden"}
             lg:flex lg:items-center lg:space-x-8
             absolute lg:static top-16 left-0 w-full lg:w-auto bg-primary lg:bg-transparent px-4 lg:px-0
-            font-bold text-lg transition-all duration-300 z-50
+            font-bold text-body-large transition-all duration-300 z-50
           `}
         >
           <li>

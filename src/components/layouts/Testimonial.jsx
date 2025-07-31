@@ -19,7 +19,7 @@ Como desarrollador full stack móvil y estudiante universitario, demuestra una g
 
   return (
     <div className="w-full flex flex-col m-2">
-      <h1 className="text-3xl font-bold text-gray-800 mb-6 text-left pl-4">Recomendaciones y Testimonios</h1>
+      <h1 className="text-heading-1 text-gray-800 mb-6 text-left pl-4">Recomendaciones y Testimonios</h1>
 
       <div className="max-w-3xl mx-auto p-4 bg-white">
 
@@ -34,16 +34,16 @@ Como desarrollador full stack móvil y estudiante universitario, demuestra una g
           </a>
 
           <div>
-            <a href='https://www.linkedin.com/in/jazminrr/' className="text-base font-semibold text-gray-800">Jazmín Rincón Rodríguez </a>
-            <h3 className="text-sm text-gray-600">Liderazgo en Proyectos Tecnológicos</h3>
-            <p className="text-xs text-gray-500">
+            <a href='https://www.linkedin.com/in/jazminrr/' className="text-body font-semibold text-gray-800">Jazmín Rincón Rodríguez </a>
+            <h3 className="text-body-small text-gray-600">Liderazgo en Proyectos Tecnológicos</h3>
+            <p className="text-caption text-gray-500">
               9 de abril de 2025, Jazmín trabajaba con Juan Camilo en el mismo equipo
             </p>
           </div>
         </div>
 
         {/* Testimonio */}
-        <div className="mt-4 text-sm text-gray-800 text-justify">
+        <div className="mt-4 text-body-small text-gray-800 text-justify">
           <p className="whitespace-pre-line leading-relaxed">
             {isExpanded ? fullText : shortText}
           </p>

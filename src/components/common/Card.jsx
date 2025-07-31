@@ -46,11 +46,11 @@ export default function Card({ name, description, homepage, language, stargazers
       </div>
 
       {/* Nombre del proyecto con truncado */}
-      <h2 className="text-lg font-semibold truncate w-full mb-2" title={name}>🚀 {name}</h2>
+      <h2 className="text-heading-4 truncate w-full mb-2" title={name}>🚀 {name}</h2>
       {/* Descripción del proyecto */}
-      <p className="text-gray-600 text-sm mb-3">{description || "📌 Sin descripción"}</p>
+      <p className="text-gray-600 text-body-small mb-3">{description || "📌 Sin descripción"}</p>
       {/* Lenguaje de programación */}
-      <div className="flex items-center gap-2 text-sm">
+      <div className="flex items-center gap-2 text-body-small">
         {language && languageIcons[language] && (
           <span className="flex items-center gap-1 bg-gray-200 px-2 py-1 rounded-lg">
             {languageIcons[language]}
@@ -59,18 +59,18 @@ export default function Card({ name, description, homepage, language, stargazers
         )}
       </div>
       {/* Estrellas y fechas */}
-      <div className="flex justify-between text-xs text-gray-400 mt-2">
+      <div className="flex justify-between text-caption text-gray-400 mt-2">
         <p>🌟 {starsValue} estrellas</p>
       </div>
-      <p className="text-xs text-gray-400 mt-1">🔄 Última actualización: {updated ? new Date(updated).toLocaleDateString() : '-'}</p>
+      <p className="text-caption text-gray-400 mt-1">🔄 Última actualización: {updated ? new Date(updated).toLocaleDateString() : '-'}</p>
       {/* Botones de enlace */}
       <div className="mt-4 flex gap-3">
         {homepage && (
-          <a href={homepage} target="_blank" rel="noreferrer" className="text-blue-500 text-sm font-medium hover:underline flex items-center gap-1">
+          <a href={homepage} target="_blank" rel="noreferrer" className="text-blue-500 text-body-small font-medium hover:underline flex items-center gap-1">
             <FaGlobe className="inline-block" /> Ver Proyecto
           </a>
         )}
-        <a href={`https://github.com/${name ? `CamiloCuenca/${name}` : ''}`} target="_blank" rel="noreferrer" className="text-blue-500 text-sm font-medium hover:underline flex items-center gap-1">
+        <a href={`https://github.com/${name ? `CamiloCuenca/${name}` : ''}`} target="_blank" rel="noreferrer" className="text-blue-500 text-body-small font-medium hover:underline flex items-center gap-1">
           <FaGithub className="inline-block" /> Código en GitHub
         </a>
       </div>
