@@ -61,6 +61,16 @@ const skills = [
   },
   // Tools
   {
+    name: "IntelliJ IDEA",
+    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/intellij/intellij-original.svg",
+    section: "Tools"
+  },
+  {
+    name: "Visual Studio Code",
+    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg",
+    section: "Tools"
+  },
+  {
     name: "Docker",
     icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg",
     section: "Tools"
@@ -73,11 +83,6 @@ const skills = [
   {
     name: "Linux",
     icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg",
-    section: "Tools"
-  },
-  {
-    name: "IntelliJ IDEA",
-    icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/intellij/intellij-original.svg",
     section: "Tools"
   },
   {

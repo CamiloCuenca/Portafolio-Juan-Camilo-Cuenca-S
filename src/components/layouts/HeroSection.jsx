@@ -1,5 +1,6 @@
 import React from "react";
 import ButtonDownload from "../common/ButtonDownload";
+import HeroText from "../common/HeroText";
 
 export default function HeroSection() {
   return (
@@ -30,10 +31,9 @@ export default function HeroSection() {
         <div className="flex-1 text-center md:text-left space-y-8">
           <div className="relative">
             <div className="relative z-10 px-4 sm:px-8 md:px-6 lg:px-0">
-              <img 
-                src="/assets/HeroSection.svg" 
-                alt="Juan Camilo Cuenca Sepúlveda" 
-                className="w-full max-w-lg mx-auto md:mx-0 h-auto object-contain drop-shadow-lg" 
+              <HeroText 
+                width="w-full max-w-2xl"
+                height="h-full"
               />
             </div>
           </div>
