@@ -29,13 +29,13 @@ export default function HeroSection() {
 
         {/* Contenido principal mejorado */}
         <div className="flex-1 text-center md:text-left space-y-8">
-          {/* SVG con mejor presentación */}
+          {/* SVG con mejor presentación - AQUÍ PUEDES AJUSTAR EL TAMAÑO */}
           <div className="relative">
             <div className="relative z-10 px-4 sm:px-8 md:px-6 lg:px-0">
               <img 
                 src="/assets/HeroSection.svg" 
                 alt="Juan Camilo Cuenca Sepúlveda" 
-                className="w-full max-w-md mx-auto md:mx-0 h-auto object-contain drop-shadow-lg" 
+                className="w-full max-w-lg mx-auto md:mx-0 h-auto object-contain drop-shadow-lg" 
               />
             </div>
           </div>

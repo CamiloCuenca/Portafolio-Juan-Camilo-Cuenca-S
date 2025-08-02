@@ -2,7 +2,7 @@ import React from "react";
 import { 
   SiJavascript, SiTypescript, SiPython, SiPhp, SiC, SiCplusplus, SiHtml5, SiCss3, SiGo, SiSwift, SiKotlin 
 } from "react-icons/si";
-import { FaJava, FaGithub, FaGlobe } from "react-icons/fa"; // Usa FontAwesome si no existe en SimpleIcons
+import { FaJava, FaGithub, FaGlobe } from "react-icons/fa";
 import PropTypes from "prop-types";
 
 // Diccionario de íconos de lenguajes
@@ -10,7 +10,7 @@ const languageIcons = {
   JavaScript: <SiJavascript className="text-yellow-500 text-lg" />,
   TypeScript: <SiTypescript className="text-blue-500 text-lg" />,
   Python: <SiPython className="text-blue-400 text-lg" />,
-  Java: <FaJava className="text-red-500 text-lg" />, // Usa FaJava en lugar de SiJava
+  Java: <FaJava className="text-red-500 text-lg" />,
   PHP: <SiPhp className="text-purple-500 text-lg" />,
   C: <SiC className="text-blue-600 text-lg" />,
   "C++": <SiCplusplus className="text-indigo-500 text-lg" />,
@@ -20,7 +20,6 @@ const languageIcons = {
   Swift: <SiSwift className="text-orange-400 text-lg" />,
   Kotlin: <SiKotlin className="text-purple-600 text-lg" />,
 };
-
 
 export default function Card({ name, description, homepage, language, stargazers_count, stars, updated_at, updatedAt, image, fixedHeight }) {
   // Compatibilidad para diferentes nombres de props

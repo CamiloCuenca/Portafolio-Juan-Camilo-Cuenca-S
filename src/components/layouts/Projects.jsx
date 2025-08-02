@@ -4,7 +4,6 @@ import Card from "../common/Card";
 import { useMemo, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
-
 // Hook para detectar si es una pantalla pequeña (menor a 640px)
 function useIsSmallScreen() {
   const [isSmall, setIsSmall] = useState(false);
@@ -19,13 +18,15 @@ function useIsSmallScreen() {
   return isSmall;
 }
 
-
-
 function ProjectsGrid({ repos }) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      {repos.map(repo => (
-        <div key={repo.id} className="transition-transform duration-300 hover:scale-105 animate-fade-in-up">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+      {repos.map((repo, index) => (
+        <div 
+          key={repo.id} 
+          className="transition-all duration-500 hover:scale-105 animate-fade-in-up"
+          style={{ animationDelay: `${index * 100}ms` }}
+        >
           <Card {...repo} fixedHeight={true} />
         </div>
       ))}
@@ -34,11 +35,27 @@ function ProjectsGrid({ repos }) {
 }
 
 function Loading() {
-  return <p className="text-center text-secondary text-body animate-pulse">Cargando proyectos...</p>;
+  return (
+    <div className="flex justify-center items-center py-12">
+      <div className="flex items-center space-x-2">
+        <div className="w-4 h-4 bg-blue-500 rounded-full animate-bounce"></div>
+        <div className="w-4 h-4 bg-blue-500 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+        <div className="w-4 h-4 bg-blue-500 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+        <span className="text-blue-600 text-body font-medium ml-4">Cargando proyectos...</span>
+      </div>
+    </div>
+  );
 }
 
 function Error({ message }) {
-  return <p className="text-center text-red-500 text-body font-semibold">Error: {message}</p>;
+  return (
+    <div className="flex justify-center items-center py-12">
+      <div className="text-center">
+        <div className="text-red-500 text-4xl mb-4">⚠️</div>
+        <p className="text-red-500 text-body font-semibold">Error: {message}</p>
+      </div>
+    </div>
+  );
 }
 
 const featuredRepos = [
@@ -68,23 +85,30 @@ export default function Projects() {
   const paginatedRepos = filteredRepos.slice((page - 1) * perPage, page * perPage);
 
   return (
-    <section id="projects" className="p-8 rounded-2xl  max-w-7xl mx-auto my-12 animate-fade-in">
-      <h1 className="text-heading-2 text-start mb-6">Mis Proyectos</h1>
+    <section id="projects" className="max-w-7xl mx-auto px-6 py-12 md:py-16">
+      <div className="text-center mb-12">
+        <h1 className="text-heading-2 mb-4 text-gray-800">Mis Proyectos</h1>
+        <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-400 mx-auto rounded-full"></div>
+      </div>
+      
       {loading && <Loading />}
       {error && <Error message={error} />}
       {!loading && !error && paginatedRepos.length > 0 && <ProjectsGrid repos={paginatedRepos} />}
       {!loading && !error && paginatedRepos.length === 0 && (
-        <p className="text-center text-gray-500 text-body">No hay proyectos destacados</p>
+        <div className="text-center py-12">
+          <div className="text-gray-400 text-4xl mb-4">📁</div>
+          <p className="text-gray-500 text-body">No hay proyectos destacados</p>
+        </div>
       )}
 
       {totalPages > 1 && (
-        <div className="flex justify-center mt-8 overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
-          <div className="flex gap-1 sm:gap-2 px-1 min-w-max flex-wrap justify-center scroll-smooth snap-x">
+        <div className="flex justify-center mt-12">
+          <div className="flex gap-2 sm:gap-3 px-4 py-2 bg-white rounded-xl shadow-lg border border-gray-100">
             {/* Botón Anterior */}
             <button
               onClick={() => setPage(page - 1)}
               disabled={page === 1}
-              className="px-2 sm:px-3 py-1 sm:py-2 rounded bg-primary text-white disabled:opacity-50 text-caption sm:text-body-small min-w-[36px] sm:min-w-[40px] snap-start"
+              className="px-4 py-2 rounded-lg bg-blue-500 text-white disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-600 transition-all duration-300 text-body-small font-medium min-w-[80px]"
             >
               <span className="inline sm:hidden">←</span>
               <span className="hidden sm:inline">Anterior</span>
@@ -92,7 +116,7 @@ export default function Projects() {
 
             {/* Elipsis inicial */}
             {page > (isSmallScreen ? 2 : 3) && (
-              <button className="px-1 sm:px-2 text-gray-400 text-caption cursor-default" disabled>…</button>
+              <div className="px-3 py-2 text-gray-400 text-body-small">…</div>
             )}
 
             {/* Botones de página */}
@@ -108,12 +132,11 @@ export default function Projects() {
                 <button
                   key={i}
                   onClick={() => setPage(i)}
-                  className={`px-2 sm:px-3 py-1 sm:py-2 rounded min-w-[36px] sm:min-w-[40px] text-caption sm:text-body-small transition-colors duration-200 snap-center ${
+                  className={`px-4 py-2 rounded-lg min-w-[40px] text-body-small font-medium transition-all duration-300 ${
                     page === i
-                      ? 'bg-secondary text-white'
-                      : 'bg-gray-200 text-black hover:bg-primary/80 hover:text-white'
+                      ? 'bg-blue-500 text-white shadow-md'
+                      : 'bg-gray-100 text-gray-700 hover:bg-blue-100 hover:text-blue-600'
                   }`}
-                  disabled={i === page}
                 >
                   {i}
                 </button>
@@ -121,14 +144,14 @@ export default function Projects() {
 
             {/* Elipsis final */}
             {page < totalPages - (isSmallScreen ? 1 : 2) && (
-              <button className="px-1 sm:px-2 text-gray-400 text-caption cursor-default" disabled>…</button>
+              <div className="px-3 py-2 text-gray-400 text-body-small">…</div>
             )}
 
             {/* Botón Siguiente */}
             <button
               onClick={() => setPage(page + 1)}
               disabled={page === totalPages}
-              className="px-2 sm:px-3 py-1 sm:py-2 rounded bg-primary text-white disabled:opacity-50 text-caption sm:text-body-small min-w-[36px] sm:min-w-[40px] snap-end"
+              className="px-4 py-2 rounded-lg bg-blue-500 text-white disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-600 transition-all duration-300 text-body-small font-medium min-w-[80px]"
             >
               <span className="inline sm:hidden">→</span>
               <span className="hidden sm:inline">Siguiente</span>
