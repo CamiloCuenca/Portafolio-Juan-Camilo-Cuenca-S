@@ -10,7 +10,7 @@ export default function HeroSection() {
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
       
       <div className="relative max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16 lg:gap-20">
-        {/* Imagen de perfil con efectos mejorados */}
+        {/* Imagen de perfil */}
         <div className="relative group">
           <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 bg-gradient-to-br from-blue-500/20 to-blue-400/20 rounded-full p-1 shadow-2xl">
             <div className="w-full h-full bg-gradient-to-br from-blue-500 to-blue-400 rounded-full p-1">
@@ -23,13 +23,11 @@ export default function HeroSection() {
               </div>
             </div>
           </div>
-          {/* Efecto de brillo */}
           <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
         </div>
 
-        {/* Contenido principal mejorado */}
+        {/* Contenido principal */}
         <div className="flex-1 text-center md:text-left space-y-8">
-          {/* SVG con mejor presentación - AQUÍ PUEDES AJUSTAR EL TAMAÑO */}
           <div className="relative">
             <div className="relative z-10 px-4 sm:px-8 md:px-6 lg:px-0">
               <img 
@@ -40,13 +38,11 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Descripción mejorada */}
           <div className="space-y-6">
             <p className="text-lg sm:text-xl text-gray-200 max-w-2xl leading-relaxed">
               Desarrollador Full Stack Móvil apasionado por crear soluciones innovadoras y experiencias digitales excepcionales
             </p>
 
-            {/* Botones de acción con diseño original */}
             <div className="flex flex-col sm:flex-row gap-4 pt-6">
               <button 
                 onClick={() => {

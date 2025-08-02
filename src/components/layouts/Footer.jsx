@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-8 md:py-12 border-t border-gray-700">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          {/* Derechos de autor */}
+          {/* Información de autor */}
           <div className="text-center md:text-left">
             <p className="text-body font-medium">
               © {new Date().getFullYear()} Juan Camilo Cuenca
@@ -19,9 +19,8 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Links e información */}
+          {/* Enlaces sociales */}
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-            {/* GitHub */}
             <a
               href="https://github.com/CamiloCuenca"
               target="_blank"
@@ -34,7 +33,6 @@ export default function Footer() {
               <span className="font-medium text-body">GitHub</span>
             </a>
 
-            {/* LinkedIn */}
             <a
               href="https://www.linkedin.com/in/juan-camilo-cuenca-sepulveda/"
               target="_blank"

@@ -28,7 +28,7 @@ export default function Card({ name, description, homepage, language, stargazers
 
   return (
     <div className={`rounded-xl shadow-md p-5 bg-white transition-transform duration-300 ease-out hover:scale-105 hover:shadow-lg ${fixedHeight ? 'h-[420px] flex flex-col justify-between' : ''}`}>
-      {/* Imagen del proyecto o placeholder */}
+      {/* Imagen del proyecto */}
       <div className="w-full aspect-[16/9] mb-4 flex items-center justify-center bg-gray-100 rounded-lg overflow-hidden">
         {image ? (
           <img
@@ -44,10 +44,12 @@ export default function Card({ name, description, homepage, language, stargazers
         )}
       </div>
 
-      {/* Nombre del proyecto con truncado */}
+      {/* Nombre del proyecto */}
       <h2 className="text-heading-4 truncate w-full mb-2" title={name}>🚀 {name}</h2>
+      
       {/* Descripción del proyecto */}
       <p className="text-gray-600 text-body-small mb-3">{description || "📌 Sin descripción"}</p>
+      
       {/* Lenguaje de programación */}
       <div className="flex items-center gap-2 text-body-small">
         {language && languageIcons[language] && (
@@ -57,11 +59,13 @@ export default function Card({ name, description, homepage, language, stargazers
           </span>
         )}
       </div>
+      
       {/* Estrellas y fechas */}
       <div className="flex justify-between text-caption text-gray-400 mt-2">
         <p>🌟 {starsValue} estrellas</p>
       </div>
       <p className="text-caption text-gray-400 mt-1">🔄 Última actualización: {updated ? new Date(updated).toLocaleDateString() : '-'}</p>
+      
       {/* Botones de enlace */}
       <div className="mt-4 flex gap-3">
         {homepage && (

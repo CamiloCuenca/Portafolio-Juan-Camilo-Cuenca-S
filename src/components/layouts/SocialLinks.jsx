@@ -9,9 +9,8 @@ export default function SocialLinks() {
     <div className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-8 px-6 border-t border-gray-700">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-center md:justify-between space-y-6 md:space-y-0">
-          {/* Enlaces sociales con mejor diseño */}
+          {/* Enlaces sociales */}
           <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-8">
-            {/* GitHub */}
             <a
               href="https://github.com/CamiloCuenca"
               target="_blank"
@@ -24,7 +23,6 @@ export default function SocialLinks() {
               <span className="font-medium text-heading-3">GitHub</span>
             </a>
 
-            {/* LinkedIn */}
             <a
               href="https://www.linkedin.com/in/juan-camilo-cuenca-sepulveda/"
               target="_blank"
@@ -38,7 +36,7 @@ export default function SocialLinks() {
             </a>
           </div>
 
-          {/* Email con mejor diseño */}
+          {/* Correo electrónico */}
           <div className="flex items-center space-x-3 px-4 py-3 rounded-lg bg-white/5 border border-white/10">
             <div className="p-2 bg-white/10 rounded-lg">
               <FiMail className="text-xl" />

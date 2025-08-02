@@ -8,7 +8,7 @@ export default function Header() {
   return (
     <header className="w-full bg-primary backdrop-blur-sm border-b border-primary/20 p-4 text-white relative z-50 shadow-lg">
       <nav className="flex justify-between items-center w-full max-w-screen-xl mx-auto px-4">
-        {/* Logo con efecto hover */}
+        {/* Logo */}
         <div className="flex-shrink-0">
           <img
             className="h-10 w-auto sm:h-8 lg:h-12 transition-transform duration-300 hover:scale-105"
@@ -17,7 +17,7 @@ export default function Header() {
           />
         </div>
 
-        {/* Menú hamburguesa mejorado */}
+        {/* Menú hamburguesa */}
         <button
           className="lg:hidden text-white focus:outline-none p-2 rounded-lg hover:bg-white/10 transition-all duration-300"
           onClick={() => setIsOpen(!isOpen)}
@@ -25,7 +25,7 @@ export default function Header() {
           {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
         </button>
 
-        {/* Lista de navegación con mejor diseño */}
+        {/* Navegación */}
         <ul
           className={`
             ${isOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"}
@@ -87,7 +87,7 @@ export default function Header() {
               Educación y Experiencia
             </a>
           </li>
-          {/* Botón de descarga SOLO en móvil */}
+          {/* Botón CV móvil */}
           <li className="block lg:hidden mt-6 mb-2">
             <ButtonDownload
               href={"/HV Juan Camilo Cuenca Sepúlveda.pdf"}
@@ -96,7 +96,7 @@ export default function Header() {
           </li>
         </ul>
 
-        {/* Botón de descarga SOLO en escritorio */}
+        {/* Botón CV escritorio */}
         <div className="hidden lg:flex">
           <ButtonDownload
             href={"/HV Juan Camilo Cuenca Sepúlveda.pdf"}

@@ -4,12 +4,12 @@ import Card from "../common/Card";
 import { useMemo, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
-// Hook para detectar si es una pantalla pequeña (menor a 640px)
+// Hook para detectar pantalla pequeña
 function useIsSmallScreen() {
   const [isSmall, setIsSmall] = useState(false);
 
   useEffect(() => {
-    const checkScreenSize = () => setIsSmall(window.innerWidth < 640); // sm breakpoint
+    const checkScreenSize = () => setIsSmall(window.innerWidth < 640);
     checkScreenSize();
     window.addEventListener("resize", checkScreenSize);
     return () => window.removeEventListener("resize", checkScreenSize);
