@@ -23,24 +23,30 @@ export default function Certificates() {
     const paginated = useMemo(() => certificates.slice((page - 1) * perPage, page * perPage), [certificates, page]);
 
     return (
-        <div className="w-full flex flex-col">
-            <h2 className="text-3xl font-bold text-gray-800 mb-6 text-left pl-4">Certificados</h2>
+        <section className="max-w-6xl mx-auto px-6 py-12 md:py-16">
+            <div className="text-center mb-12">
+                <h2 className="text-heading-2 mb-4 text-gray-800">Certificados</h2>
+                <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-400 mx-auto rounded-full"></div>
+            </div>
+            
             {totalPages > 1 && (
-                <div className="flex justify-center mt-2 mb-8 overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
-                    <div className="flex gap-1 sm:gap-2 px-1 min-w-max flex-wrap justify-center scroll-smooth snap-x">
+                <div className="flex justify-center mb-8">
+                    <div className="flex gap-2 sm:gap-3 px-4 py-2 bg-white rounded-xl shadow-lg border border-gray-100">
                         {/* Botón Anterior */}
                         <button
                             onClick={() => setPage(page - 1)}
                             disabled={page === 1}
-                            className="px-2 sm:px-3 py-1 sm:py-2 rounded bg-secondary text-white disabled:opacity-50 text-xs sm:text-sm min-w-[36px] sm:min-w-[40px] snap-start"
+                            className="px-4 py-2 rounded-lg bg-blue-500 text-white disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-600 transition-all duration-300 text-body-small font-medium min-w-[80px]"
                         >
                             <span className="inline sm:hidden">←</span>
                             <span className="hidden sm:inline">Anterior</span>
                         </button>
+                        
                         {/* Elipsis inicial */}
                         {page > (isSmallScreen ? 2 : 3) && (
-                            <button className="px-1 sm:px-2 text-gray-400 cursor-default" disabled>…</button>
+                            <div className="px-3 py-2 text-gray-400 text-body-small">…</div>
                         )}
+                        
                         {/* Botones de página */}
                         {Array.from({ length: totalPages }, (_, i) => i + 1)
                             .filter(i =>
@@ -54,25 +60,26 @@ export default function Certificates() {
                                 <button
                                     key={i}
                                     onClick={() => setPage(i)}
-                                    className={`px-2 sm:px-3 py-1 sm:py-2 rounded min-w-[36px] sm:min-w-[40px] text-xs sm:text-sm transition-colors duration-200 snap-center ${
+                                    className={`px-4 py-2 rounded-lg min-w-[40px] text-body-small font-medium transition-all duration-300 ${
                                         page === i
-                                            ? 'bg-blue-500 text-white'
-                                            : 'bg-gray-200 text-black hover:bg-blue-600 hover:text-white'
+                                            ? 'bg-blue-500 text-white shadow-md'
+                                            : 'bg-gray-100 text-gray-700 hover:bg-blue-100 hover:text-blue-600'
                                     }`}
-                                    disabled={i === page}
                                 >
                                     {i}
                                 </button>
                             ))}
+                        
                         {/* Elipsis final */}
                         {page < totalPages - (isSmallScreen ? 1 : 2) && (
-                            <button className="px-1 sm:px-2 text-gray-400 cursor-default" disabled>…</button>
+                            <div className="px-3 py-2 text-gray-400 text-body-small">…</div>
                         )}
+                        
                         {/* Botón Siguiente */}
                         <button
                             onClick={() => setPage(page + 1)}
                             disabled={page === totalPages}
-                            className="px-2 sm:px-3 py-1 sm:py-2 rounded bg-secondary text-white disabled:opacity-50 text-xs sm:text-sm min-w-[36px] sm:min-w-[40px] snap-end"
+                            className="px-4 py-2 rounded-lg bg-blue-500 text-white disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-600 transition-all duration-300 text-body-small font-medium min-w-[80px]"
                         >
                             <span className="inline sm:hidden">→</span>
                             <span className="hidden sm:inline">Siguiente</span>
@@ -80,9 +87,14 @@ export default function Certificates() {
                     </div>
                 </div>
             )}
-            <div id="certificates" className="flex flex-wrap justify-center gap-6 w-full mb-4">
-                {paginated.map((cert) => (
-                    <div key={cert.nombre} className="flex-none w-full sm:w-[350px] md:w-[350px] lg:w-[350px] xl:w-[350px]">
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+                {paginated.map((cert, index) => (
+                    <div 
+                        key={cert.nombre} 
+                        className="transition-all duration-500 hover:scale-105 animate-fade-in-up"
+                        style={{ animationDelay: `${index * 100}ms` }}
+                    >
                         <CardCertificates 
                             nombre={cert.nombre} 
                             entidad={cert.entidad} 
@@ -92,6 +104,6 @@ export default function Certificates() {
                     </div>
                 ))}
             </div>
-        </div>
+        </section>
     );
 }
