@@ -7,7 +7,10 @@ export default function Header() {
 
   return (
     <header className="w-full bg-primary backdrop-blur-sm border-b border-primary/20 p-4 text-white relative z-50 shadow-lg">
-      <nav className="flex justify-between items-center w-full max-w-screen-xl mx-auto px-4">
+    
+    <div className="max-w-screen-xl mx-auto">
+    
+      <nav className="flex justify-between items-center w-full px-6">
         {/* Logo */}
         <div className="flex-shrink-0">
           <img
@@ -104,6 +107,7 @@ export default function Header() {
           />
         </div>
       </nav>
+    </div>
     </header>
   );
 }
