@@ -6,8 +6,8 @@ export default function SocialLinks() {
   const { copied, handleCopyEmail } = useCopyEmail();
 
   return (
-    <div className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-8 px-6 border-t border-gray-700">
-      <div className="max-w-6xl mx-auto">
+    <div className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-4 px-6 border-t border-gray-700 w-full">
+      <div className="max-w-screen-xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-center md:justify-between space-y-6 md:space-y-0">
           {/* Enlaces sociales */}
           <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-8">
