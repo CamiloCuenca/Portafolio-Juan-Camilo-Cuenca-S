@@ -9,6 +9,10 @@ import Experience from '../components/layouts/Experience';
 import Certificates from '../components/layouts/Certificates';
 import ScrollToTopButton from "../components/common/ScrollToTopButton";
 import Testimonial from "../components/layouts/Testimonial";
+import LatestProjects from "../components/layouts/latestProjects";
+
+
+ 
 
 export default function Home() {
   return (
@@ -62,6 +66,8 @@ export default function Home() {
             <Experience />
           </div>
         </div>
+
+        <LatestProjects />
 
         {/* Projects Section */}
         <div className="p-4 rounded-2xl  ">
