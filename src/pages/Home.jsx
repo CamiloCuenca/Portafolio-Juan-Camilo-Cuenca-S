@@ -1,15 +1,16 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import HeroSection from '../components/layouts/HeroSection';
-import Skills from '../components/layouts/Skills';
 import SocialLinks from '../components/layouts/SocialLinks';
-import AboutMe from '../components/layouts/AboutMe';
-import Projects from '../components/layouts/Projects';
-import Education from '../components/layouts/Education';
-import Experience from '../components/layouts/Experience';
-import Certificates from '../components/layouts/Certificates';
 import ScrollToTopButton from "../components/common/ScrollToTopButton";
-import Testimonial from "../components/layouts/Testimonial";
-import LatestProjects from "../components/layouts/latestProjects";
+
+const AboutMe = lazy(() => import('../components/layouts/AboutMe'));
+const Skills = lazy(() => import('../components/layouts/Skills'));
+const Education = lazy(() => import('../components/layouts/Education'));
+const Experience = lazy(() => import('../components/layouts/Experience'));
+const Projects = lazy(() => import('../components/layouts/Projects'));
+const Certificates = lazy(() => import('../components/layouts/Certificates'));
+const Testimonial = lazy(() => import('../components/layouts/Testimonial'));
+const LatestProjects = lazy(() => import('../components/layouts/LatestProjects'));
 
 
  
@@ -45,12 +46,16 @@ export default function Home() {
         
           {/* About Me */}
           <div className="p-4  rounded-2xl ">
-            <AboutMe />
+            <Suspense fallback={<div className="h-40 bg-white/40 rounded-xl" /> }>
+              <AboutMe />
+            </Suspense>
           </div>
 
           {/* Skills */}
           <div className="p-4  rounded-2xl flex flex-col justify-between">
-            <Skills />
+            <Suspense fallback={<div className="h-40 bg-white/40 rounded-xl" /> }>
+              <Skills />
+            </Suspense>
           </div>
         </div>
 
@@ -58,27 +63,38 @@ export default function Home() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 gap-y-8 mb-12">
           {/* Education */}
           <div className="p-4  rounded-2xl ">
-            <Education />
+            <Suspense fallback={<div className="h-40 bg-white/40 rounded-xl" /> }>
+              <Education />
+            </Suspense>
           </div>
 
           {/* Experience */}
           <div className="p-4 rounded-2xl">
-            <Experience />
+            <Suspense fallback={<div className="h-40 bg-white/40 rounded-xl" /> }>
+              <Experience />
+            </Suspense>
           </div>
         </div>
 
-        <LatestProjects />
+        <Suspense fallback={<div className="h-40 bg-white/40 rounded-xl" /> }>
+          <LatestProjects />
+        </Suspense>
 
         {/* Projects Section */}
         <div className="p-4 rounded-2xl  ">
-          <Projects />
+          <Suspense fallback={<div className="h-40 bg-white/40 rounded-xl" /> }>
+            <Projects />
+          </Suspense>
         </div>
 
 
-        
-        <Certificates />
+        <Suspense fallback={<div className="h-40 bg-white/40 rounded-xl" /> }>
+          <Certificates />
+        </Suspense>
 
-        <Testimonial />
+        <Suspense fallback={<div className="h-40 bg-white/40 rounded-xl" /> }>
+          <Testimonial />
+        </Suspense>
          
         
       </div>

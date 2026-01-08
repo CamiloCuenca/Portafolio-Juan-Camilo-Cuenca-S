@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, memo } from 'react';
 import * as THREE from 'three';
 import { EffectComposer, EffectPass, RenderPass, Effect } from 'postprocessing';
 
@@ -595,4 +595,11 @@ const PixelBlast = ({
   );
 };
 
-export default PixelBlast;
+// Memoize to prevent unnecessary re-renders
+// Custom comparison: only re-render if props actually differ meaningfully
+const PixelBlastMemo = memo(PixelBlast, (prevProps, nextProps) => {
+  const keys = Object.keys(prevProps);
+  return keys.every(key => prevProps[key] === nextProps[key]);
+});
+
+export default PixelBlastMemo;

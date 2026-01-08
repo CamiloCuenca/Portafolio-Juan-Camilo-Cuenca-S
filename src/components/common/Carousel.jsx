@@ -1,5 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
-import { motion, useMotionValue, useTransform } from 'motion/react';
+import { useEffect, useMemo, useRef, useState, memo } from 'react';
 // replace icons with your own if needed
 import { FiCircle, FiCode, FiBox , FiLayers, FiLayout } from 'react-icons/fi';
 
@@ -30,36 +29,26 @@ const DEFAULT_ITEMS = [
   }
 ];
 
-const DRAG_BUFFER = 0;
-const VELOCITY_THRESHOLD = 500;
 const GAP = 16;
-const SPRING_OPTIONS = { type: 'spring', stiffness: 300, damping: 30 };
 
-function CarouselItem({ item, index, itemWidth, round, trackItemOffset, x, transition }) {
-  const range = [-(index + 1) * trackItemOffset, -index * trackItemOffset, -(index - 1) * trackItemOffset];
-  const outputRange = [90, 0, -90];
-  const rotateY = useTransform(x, range, outputRange, { clamp: false });
-
+function CarouselItem({ item, index, itemWidth, round }) {
   return (
-    <motion.div
+    <div
       key={`${item?.id ?? index}-${index}`}
       className={`relative shrink-0 flex flex-col group ${
         round
           ? 'items-center justify-center text-center bg-gradient-to-br from-blue-900 via-purple-900 to-slate-900 border-0'
           : 'items-start justify-between bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 border border-blue-500/20 rounded-[20px] hover:border-blue-400/40'
-      } overflow-hidden cursor-grab active:cursor-grabbing shadow-xl hover:shadow-2xl transition-all duration-300`}
+      } overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300`}
       style={{
         width: itemWidth,
         height: round ? itemWidth : '100%',
-        rotateY: rotateY,
         ...(round && { borderRadius: '50%' })
       }}
-      transition={transition}
-      whileHover={{ scale: 1.02 }}
     >
       {/* Efecto de brillo animado */}
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-      
+
       <div className={`${round ? 'p-0 m-0' : 'mb-4 p-6'}`}>
         <span className="flex h-[40px] w-[40px] items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-purple-600 shadow-lg group-hover:scale-110 transition-transform duration-300">
           {item.icon}
@@ -69,11 +58,13 @@ function CarouselItem({ item, index, itemWidth, round, trackItemOffset, x, trans
         <div className="mb-3 font-bold text-xl bg-gradient-to-r from-blue-200 to-purple-200 bg-clip-text text-transparent">{item.title}</div>
         <p className="text-sm text-gray-300 leading-relaxed">{item.description}</p>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
-export default function Carousel({
+// Memoize Carousel to prevent unnecessary re-renders when parent updates
+// Only re-render if items, baseWidth, or event handlers actually change
+const CarouselMemo = memo(function Carousel({
   items = DEFAULT_ITEMS,
   baseWidth = 300,
   autoplay = false,
@@ -92,10 +83,8 @@ export default function Carousel({
   }, [items, loop]);
 
   const [position, setPosition] = useState(loop ? 1 : 0);
-  const x = useMotionValue(0);
   const [isHovered, setIsHovered] = useState(false);
   const [isJumping, setIsJumping] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
 
   const containerRef = useRef(null);
   useEffect(() => {
@@ -126,8 +115,7 @@ export default function Carousel({
   useEffect(() => {
     const startingPosition = loop ? 1 : 0;
     setPosition(startingPosition);
-    x.set(-startingPosition * trackItemOffset);
-  }, [items.length, loop, trackItemOffset, x]);
+  }, [items.length, loop, trackItemOffset]);
 
   useEffect(() => {
     if (!loop && position > itemsForRender.length - 1) {
@@ -135,27 +123,17 @@ export default function Carousel({
     }
   }, [itemsForRender.length, loop, position]);
 
-  const effectiveTransition = isJumping ? { duration: 0 } : SPRING_OPTIONS;
-
-  const handleAnimationStart = () => {
-    setIsAnimating(true);
-  };
-
-  const handleAnimationComplete = () => {
-    if (!loop || itemsForRender.length <= 1) {
-      setIsAnimating(false);
-      return;
-    }
+  const handleTransitionEnd = () => {
+    if (!loop || itemsForRender.length <= 1) return;
     const lastCloneIndex = itemsForRender.length - 1;
 
     if (position === lastCloneIndex) {
       setIsJumping(true);
       const target = 1;
       setPosition(target);
-      x.set(-target * trackItemOffset);
+      // Remove transition for the instant jump
       requestAnimationFrame(() => {
         setIsJumping(false);
-        setIsAnimating(false);
       });
       return;
     }
@@ -164,46 +142,13 @@ export default function Carousel({
       setIsJumping(true);
       const target = items.length;
       setPosition(target);
-      x.set(-target * trackItemOffset);
       requestAnimationFrame(() => {
         setIsJumping(false);
-        setIsAnimating(false);
       });
-      return;
     }
-
-    setIsAnimating(false);
   };
 
-  const handleDragEnd = (_, info) => {
-    const { offset, velocity } = info;
-    const direction =
-      offset.x < -DRAG_BUFFER || velocity.x < -VELOCITY_THRESHOLD
-        ? 1
-        : offset.x > DRAG_BUFFER || velocity.x > VELOCITY_THRESHOLD
-          ? -1
-          : 0;
-
-    if (direction === 0) return;
-
-    setPosition(prev => {
-      const next = prev + direction;
-      const max = itemsForRender.length - 1;
-      return Math.max(0, Math.min(next, max));
-    });
-  };
-
-  const dragProps = loop
-    ? {}
-    : {
-        dragConstraints: {
-          left: -trackItemOffset * Math.max(itemsForRender.length - 1, 0),
-          right: 0
-        }
-      };
-
-  const activeIndex =
-    items.length === 0 ? 0 : loop ? (position - 1 + items.length) % items.length : Math.min(position, items.length - 1);
+  const activeIndex = items.length === 0 ? 0 : loop ? (position - 1 + items.length) % items.length : Math.min(position, items.length - 1);
 
   return (
     <div
@@ -216,22 +161,14 @@ export default function Carousel({
         ...(round && { height: `${baseWidth}px` })
       }}
     >
-      <motion.div
+      <div
         className="flex"
-        drag={isAnimating ? false : 'x'}
-        {...dragProps}
         style={{
-          width: itemWidth,
           gap: `${GAP}px`,
-          perspective: 1000,
-          perspectiveOrigin: `${position * trackItemOffset + itemWidth / 2}px 50%`,
-          x
+          transform: `translateX(-${position * trackItemOffset}px)`,
+          transition: isJumping ? 'none' : 'transform 300ms ease-out'
         }}
-        onDragEnd={handleDragEnd}
-        animate={{ x: -(position * trackItemOffset) }}
-        transition={effectiveTransition}
-        onAnimationStart={handleAnimationStart}
-        onAnimationComplete={handleAnimationComplete}
+        onTransitionEnd={handleTransitionEnd}
       >
         {itemsForRender.map((item, index) => (
           <CarouselItem
@@ -240,33 +177,27 @@ export default function Carousel({
             index={index}
             itemWidth={itemWidth}
             round={round}
-            trackItemOffset={trackItemOffset}
-            x={x}
-            transition={effectiveTransition}
           />
         ))}
-      </motion.div>
+      </div>
       <div className={`flex w-full justify-center ${round ? 'absolute z-20 bottom-12 left-1/2 -translate-x-1/2' : ''}`}>
         <div className="mt-6 flex gap-3">
           {items.map((_, index) => (
-            <motion.button
+            <button
               key={index}
-              className={`rounded-full cursor-pointer transition-all duration-300 ${
+              className={`rounded-full cursor-pointer transition-all duration-200 ${
                 activeIndex === index
                   ? 'h-2.5 w-8 bg-gradient-to-r from-blue-500 to-purple-500 shadow-lg shadow-blue-500/50'
                   : 'h-2.5 w-2.5 bg-gray-400/50 hover:bg-gray-400/80'
               }`}
-              animate={{
-                scale: activeIndex === index ? 1.05 : 1
-              }}
               onClick={() => setPosition(loop ? index + 1 : index)}
-              transition={{ duration: 0.2 }}
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.95 }}
+              aria-label={`Ir al slide ${index + 1}`}
             />
           ))}
         </div>
       </div>
     </div>
   );
-}
+});
+
+export default CarouselMemo;

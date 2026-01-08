@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { 
   SiJavascript, SiTypescript, SiPython, SiPhp, SiC, SiCplusplus, SiHtml5, SiCss3, SiGo, SiSwift, SiKotlin 
 } from "react-icons/si";
@@ -21,7 +21,24 @@ const languageIcons = {
   Kotlin: <SiKotlin className="text-purple-600 text-lg" />,
 };
 
-export default function Card({ name, description, homepage, language, stargazers_count, stars, updated_at, updatedAt, image, fixedHeight }) {
+export default memo(Card);
+
+Card.propTypes = {
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string,
+  homepage: PropTypes.string,
+  language: PropTypes.string,
+  stargazers_count: PropTypes.number,
+  stars: PropTypes.number,
+  created_at: PropTypes.string,
+  createdAt: PropTypes.string,
+  updated_at: PropTypes.string,
+  updatedAt: PropTypes.string,
+  image: PropTypes.string,
+  fixedHeight: PropTypes.bool,
+};
+
+function Card({ name, description, homepage, language, stargazers_count, stars, updated_at, updatedAt, image, fixedHeight }) {
   // Compatibilidad para diferentes nombres de props
   const starsValue = typeof stars !== 'undefined' ? stars : (typeof stargazers_count !== 'undefined' ? stargazers_count : 0);
   const updated = updatedAt || updated_at;
@@ -36,6 +53,10 @@ export default function Card({ name, description, homepage, language, stargazers
             alt={`${name} preview`}
             className="w-full h-full object-contain"
             style={{ maxHeight: 180 }}
+            loading="lazy"
+            decoding="async"
+            width="280"
+            height="157"
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center text-gray-400 text-5xl">
@@ -79,19 +100,4 @@ export default function Card({ name, description, homepage, language, stargazers
       </div>
     </div>
   );
-}
-
-Card.propTypes = {
-  name: PropTypes.string.isRequired,
-  description: PropTypes.string,
-  homepage: PropTypes.string,
-  language: PropTypes.string,
-  stargazers_count: PropTypes.number,
-  stars: PropTypes.number,
-  created_at: PropTypes.string,
-  createdAt: PropTypes.string,
-  updated_at: PropTypes.string,
-  updatedAt: PropTypes.string,
-  image: PropTypes.string,
-  fixedHeight: PropTypes.bool,
 }
