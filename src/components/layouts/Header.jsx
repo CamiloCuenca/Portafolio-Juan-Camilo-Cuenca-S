@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FiMenu, FiX } from "react-icons/fi";
+import { MenuIcon, CloseIcon } from "../common/SvgIcons";
 import ButtonDownload from "../common/ButtonDownload";
 
 export default function Header() {
@@ -7,7 +7,10 @@ export default function Header() {
 
   return (
     <header className="w-full bg-primary backdrop-blur-sm border-b border-primary/20 p-4 text-white relative z-50 shadow-lg">
-      <nav className="flex justify-between items-center w-full max-w-screen-xl mx-auto px-4">
+    
+    <div className="max-w-screen-xl mx-auto">
+    
+      <nav className="flex justify-between items-center w-full px-6">
         {/* Logo */}
         <div className="flex-shrink-0">
           <img
@@ -22,7 +25,7 @@ export default function Header() {
           className="lg:hidden text-white focus:outline-none p-2 rounded-lg hover:bg-white/10 transition-all duration-300"
           onClick={() => setIsOpen(!isOpen)}
         >
-          {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+          {isOpen ? <CloseIcon size={24} /> : <MenuIcon size={24} />}
         </button>
 
         {/* Navegación */}
@@ -104,6 +107,7 @@ export default function Header() {
           />
         </div>
       </nav>
+    </div>
     </header>
   );
 }

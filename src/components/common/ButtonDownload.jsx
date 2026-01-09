@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FaDownload } from 'react-icons/fa';
+import { DownloadIcon } from './SvgIcons';
 
 export default function ButtonDownload({ href, Name = "Descargar", color = "bg-tertiary" }) {
     return (
@@ -11,7 +11,7 @@ export default function ButtonDownload({ href, Name = "Descargar", color = "bg-t
             className={`${color} px-4 py-2 text-sm rounded-xl text-white flex items-center justify-center space-x-2 hover:bg-secondary hover:shadow-lg hover:scale-105 transition-all duration-300`}
         >
             <span className="text-sm">{Name}</span>
-            <FaDownload className="w-4 h-4" />
+            <DownloadIcon size={16} />
         </a>
     );
 }

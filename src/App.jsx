@@ -4,16 +4,19 @@ import Footer from './components/layouts/Footer';
 import Header from './components/layouts/Header';
 import Home from './pages/Home';
 
+const MemoizedHeader = React.memo(Header);
+const MemoizedFooter = React.memo(Footer);
+
 function App() {
   return (
     <React.Fragment>
-      <Header />
+      <MemoizedHeader />
       <div className="App">
         
         <Home />
         
       </div>
-      <Footer />
+      <MemoizedFooter />
     </React.Fragment>
   );
 }

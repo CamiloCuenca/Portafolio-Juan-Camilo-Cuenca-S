@@ -6,7 +6,7 @@ export default function HeroText({ width = "w-full", height = "h-auto", classNam
     <div className={`${width} ${height} ${className} flex items-center justify-center`}>
       <div className="text-white font-bold">
         <div className="flex items-center justify-center space-x-6">
-          <span className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl">{"{ "}</span>
+          <span className="text-16xl sm:text-7xl md:text-8xl lg:text-9xl">{"{ "}</span>
           <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed text-justify">
             Hola, soy Juan Camilo Cuenca
             <br />
@@ -14,7 +14,7 @@ export default function HeroText({ width = "w-full", height = "h-auto", classNam
             <br />
             Computación.
           </div>
-          <span className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl">{"}"}</span>
+          <span className="text-16xl sm:text-7xl md:text-8xl lg:text-9xl">{"}"}</span>
         </div>
       </div>
     </div>
