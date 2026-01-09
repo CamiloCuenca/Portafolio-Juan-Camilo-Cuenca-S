@@ -1,16 +1,17 @@
 import React, { lazy, Suspense } from "react";
 import HeroSection from '../components/layouts/HeroSection';
-import SocialLinks from '../components/layouts/SocialLinks';
 import ScrollToTopButton from "../components/common/ScrollToTopButton";
 
+// Lazy load non-critical sections - each gets its own chunk
+const SocialLinks = lazy(() => import('../components/layouts/SocialLinks'));
 const AboutMe = lazy(() => import('../components/layouts/AboutMe'));
 const Skills = lazy(() => import('../components/layouts/Skills'));
 const Education = lazy(() => import('../components/layouts/Education'));
 const Experience = lazy(() => import('../components/layouts/Experience'));
+const LatestProjects = lazy(() => import('../components/layouts/LatestProjects'));
 const Projects = lazy(() => import('../components/layouts/Projects'));
 const Certificates = lazy(() => import('../components/layouts/Certificates'));
 const Testimonial = lazy(() => import('../components/layouts/Testimonial'));
-const LatestProjects = lazy(() => import('../components/layouts/LatestProjects'));
 
 
  
@@ -35,7 +36,9 @@ export default function Home() {
 
       {/* Social Links */}
       <div className="w-full ">
-        <SocialLinks />
+        <Suspense fallback={<div className="h-20 bg-white/40" />}>
+          <SocialLinks />
+        </Suspense>
       </div>
 
       {/* Main Content Section */}

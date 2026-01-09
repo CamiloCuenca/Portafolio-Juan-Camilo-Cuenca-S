@@ -60,11 +60,11 @@ function Error({ message }) {
 
 const featuredRepos = [
   { name: "UniEventos_proyecto_final_Backend", image: null },
-  { name: "UniEventos_proyecto_final_Frontend", image: "/assets/img-Proyects/UniEventos.png" },
+  { name: "UniEventos_proyecto_final_Frontend", image: "/assets/img-Proyects/UniEventos.webp" },
   { name: "AppMisiontic-Movil", image: null },
-  { name: "PomoTimerFlow", image: "/assets/img-Proyects/PomoTimerFlow.png" },
-  { name: "regex-validator", image: "/assets/img-Proyects/regex-validator.png" },
-  { name: "Portafolio-Juan-Camilo-Cuenca-S", image: "/assets/img-Proyects/PortafolioPrueba.png" },
+  { name: "PomoTimerFlow", image: "/assets/img-Proyects/PomoTimerFlow.webp" },
+  { name: "regex-validator", image: "/assets/img-Proyects/regex-validator.webp" },
+  { name: "Portafolio-Juan-Camilo-Cuenca-S", image: "/assets/img-Proyects/PortafolioPrueba.webp" },
 ];
 
 export default function Projects() {

@@ -1,44 +1,10 @@
-import React, { useMemo } from "react";
+import React from "react";
 import ButtonDownload from "../common/ButtonDownload";
 import HeroText from "../common/HeroText";
-import PixelBlast from "../common/PixelBlast";
 
 export default function HeroSection() {
-  // Check user's motion preference (respects accessibility settings)
-  const prefersReducedMotion = useMemo(() => {
-    if (typeof window !== 'undefined') {
-      return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    }
-    return false;
-  }, []);
   return (
     <section className="relative min-h-[85vh] overflow-hidden bg-slate-950">
-      
-      {/* 🔵 PIXEL BLAST - FONDO TOTAL (Disabled for reduced-motion preference) */}
-      {!prefersReducedMotion && (
-        <div className="absolute inset-0 z-0 pointer-events-none">
-          <PixelBlast
-            variant="circle"
-            pixelSize={8}
-            color="#b19eef"
-            patternScale={2.6}
-            patternDensity={1.4}
-            pixelSizeJitter={0.5}
-            enableRipples
-            rippleSpeed={0.4}
-            rippleThickness={0.12}
-            rippleIntensityScale={1.5}
-            liquid
-            liquidStrength={0.12}
-            liquidRadius={1.2}
-            liquidWobbleSpeed={5}
-            speed={0.6}
-            edgeFade={0.25}
-            transparent
-            className="w-full h-full"
-          />
-        </div>
-      )}
 
       {/* ✨ CAPAS DE GRADIENTES Y EFECTOS */}
       <div className="absolute inset-0 z-10 bg-gradient-to-br from-slate-950/90 via-blue-900/80 to-slate-900/90 pointer-events-none" />
@@ -56,12 +22,13 @@ export default function HeroSection() {
             <div className="w-full h-full bg-gradient-to-br from-blue-500 to-blue-400 rounded-full p-1">
               <div className="w-full h-full bg-blue-900 rounded-full overflow-hidden">
                 <img
-                  src="/assets/FotoPerfil.png"
+                  src="/assets/FotoPerfil.webp"
                   alt="Juan Camilo Cuenca Sepúlveda"
-                  className="w-full h-full object-cover rounded-full transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover rounded-full transition-transform duration-500 group-hover:scale-110 will-change-transform transform-gpu"
                   loading="eager"
                   decoding="async"
                   fetchpriority="high"
+                  sizes="(min-width: 1024px) 18rem, (min-width: 768px) 16rem, 14rem"
                   width="512"
                   height="512"
                 />

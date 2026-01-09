@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, lazy, Suspense } from "react";
+import React, { useState, useEffect, useRef, lazy, Suspense, useCallback } from "react";
 const MovilDesktop = lazy(() => import("../common/MovilDesktop"));
 const MonitorDesktop = lazy(() => import("../common/MonitorDesktop"));
 const CarouselLazy = lazy(() => import('../../components/common/Carousel'));
@@ -79,6 +79,23 @@ export default function LatestProjects() {
 
     const currentProject = projects[activeProject];
 
+    // Memoize callbacks to prevent unnecessary re-renders
+    const handleActiveProjectChange = useCallback((index) => {
+        setActiveProject(index);
+    }, []);
+
+    const handleShowApkModal = useCallback(() => {
+        setShowApkModal(true);
+    }, []);
+
+    const handleCloseApkModal = useCallback(() => {
+        setModalExiting(true);
+        setTimeout(() => {
+            setShowApkModal(false);
+            setModalExiting(false);
+        }, 300);
+    }, []);
+
     return (
         <div ref={containerRef}>
            
@@ -103,7 +120,7 @@ export default function LatestProjects() {
                         {projects.map((project, index) => (
                             <button
                                 key={project.id}
-                                onClick={() => setActiveProject(index)}
+                                onClick={() => handleActiveProjectChange(index)}
                                 className={`relative px-4 sm:px-6 lg:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl font-semibold transition-all duration-300 flex items-center gap-2 sm:gap-3 text-sm sm:text-base ${
                                     activeProject === index
                                         ? 'text-white'
@@ -186,7 +203,7 @@ export default function LatestProjects() {
                                             </a>
 
                                             <button
-                                                onClick={() => setShowApkModal(true)}
+                                                onClick={handleShowApkModal}
                                                 className="px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-semibold rounded-lg sm:rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 text-sm sm:text-base whitespace-nowrap"
                                             >
                                                 Descargar APK
@@ -282,13 +299,7 @@ export default function LatestProjects() {
                 {/* Modal de descarga APK */}
                 {showApkModal && (
                     <div
-                        onClick={() => {
-                            setModalExiting(true);
-                            setTimeout(() => {
-                                setShowApkModal(false);
-                                setModalExiting(false);
-                            }, 200);
-                        }}
+                        onClick={handleCloseApkModal}
                         className={`fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 ${
                             modalExiting ? 'animate-backdrop-fade-out' : 'animate-backdrop-fade-in'
                         }`}
@@ -301,13 +312,7 @@ export default function LatestProjects() {
                         >
                             {/* Botón cerrar */}
                             <button
-                                onClick={() => {
-                                    setModalExiting(true);
-                                    setTimeout(() => {
-                                        setShowApkModal(false);
-                                        setModalExiting(false);
-                                    }, 200);
-                                }}
+                                onClick={handleCloseApkModal}
                                 className="absolute -top-4 -right-4 bg-red-500 hover:bg-red-600 text-white rounded-full p-3 shadow-lg hover:scale-110 transition-all duration-200 z-10"
                             >
                                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -357,13 +362,7 @@ export default function LatestProjects() {
                                         Descargar APK
                                     </a>
                                     <button
-                                        onClick={() => {
-                                            setModalExiting(true);
-                                            setTimeout(() => {
-                                                setShowApkModal(false);
-                                                setModalExiting(false);
-                                            }, 200);
-                                        }}
+                                        onClick={handleCloseApkModal}
                                         className="px-8 py-3 bg-gray-200 text-gray-700 font-semibold rounded-xl hover:bg-gray-300 transition-all duration-300"
                                     >
                                         Cancelar

@@ -1,4 +1,4 @@
-import { FiGithub, FiLinkedin, FiMail, FiCopy } from "react-icons/fi";
+import { GitHubIcon, LinkedinIcon, MailIcon, CopyIcon } from "../common/SvgIcons";
 import { useCopyEmail } from "../../hooks/useCopyEmail";
 import React from "react";
 
@@ -28,7 +28,7 @@ export default function Footer() {
               className="group flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-white/10 transition-all duration-300 hover:scale-105"
             >
               <div className="p-2 bg-white/10 rounded-lg group-hover:bg-white/20 transition-colors duration-300">
-                <FiGithub className="text-lg" />
+                <GitHubIcon size={18} />
               </div>
               <span className="font-medium text-body">GitHub</span>
             </a>
@@ -40,7 +40,7 @@ export default function Footer() {
               className="group flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-white/10 transition-all duration-300 hover:scale-105"
             >
               <div className="p-2 bg-white/10 rounded-lg group-hover:bg-white/20 transition-colors duration-300">
-                <FiLinkedin className="text-lg" />
+                <LinkedinIcon size={18} />
               </div>
               <span className="font-medium text-body">LinkedIn</span>
             </a>
@@ -48,7 +48,7 @@ export default function Footer() {
             {/* Correo electrónico */}
             <div className="flex items-center gap-3 px-4 py-2 rounded-lg bg-white/5 border border-white/10">
               <div className="p-2 bg-white/10 rounded-lg">
-                <FiMail className="text-lg" />
+                <MailIcon size={18} />
               </div>
               <span className="text-body-small md:text-body font-medium select-all">
                 camilocuencadev@gmail.com
@@ -58,7 +58,7 @@ export default function Footer() {
                 className="group p-2 rounded-lg hover:bg-white/10 transition-all duration-300 hover:scale-110"
                 title="Copiar correo"
               >
-                <FiCopy className="text-lg group-hover:text-blue-400 transition-colors duration-300" />
+                <CopyIcon size={18} className="group-hover:text-blue-400 transition-colors duration-300" />
               </button>
               {copied && (
                 <span className="text-green-400 text-body-small font-medium animate-pulse">

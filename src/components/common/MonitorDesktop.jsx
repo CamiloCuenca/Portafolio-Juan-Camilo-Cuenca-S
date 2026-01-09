@@ -6,6 +6,8 @@ export default function MonitorDesktop({ url }) {
     displayWidth: 800,
     displayHeight: 500
   });
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const updateDimensions = () => {
@@ -27,6 +29,11 @@ export default function MonitorDesktop({ url }) {
     window.addEventListener('resize', updateDimensions);
     return () => window.removeEventListener('resize', updateDimensions);
   }, []);
+
+  const handleLoadVisualization = () => {
+    setIsLoading(true);
+    setIsLoaded(true);
+  };
   
   // Resolución real del iframe (para mostrar el contenido completo)
   const iframeWidth = 1920;
@@ -45,26 +52,42 @@ export default function MonitorDesktop({ url }) {
           
           {/* Screen Container */}
           <div 
-            className="relative overflow-hidden rounded-md sm:rounded-lg bg-black border border-white/10" 
+            className="relative overflow-hidden rounded-md sm:rounded-lg bg-black border border-white/10 flex items-center justify-center" 
             style={{ width: dimensions.displayWidth, height: dimensions.displayHeight }}
           >
-            {/* Iframe escalado */}
-            <div
-              style={{
-                width: iframeWidth,
-                height: iframeHeight,
-                transform: `scale(${scale})`,
-                transformOrigin: 'top left'
-              }}
-            >
-              <iframe
-                title="Dental Management System"
-                src={url}
-                className="w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                loading="lazy"
-              />
-            </div>
+            {!isLoaded ? (
+              <div className="flex flex-col items-center justify-center gap-2 sm:gap-3 p-4">
+                <svg className="w-10 h-10 sm:w-12 sm:h-12 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <button
+                  onClick={handleLoadVisualization}
+                  disabled={isLoading}
+                  className="px-2 sm:px-3 py-1 sm:py-1.5 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded text-xs sm:text-sm hover:shadow-lg hover:scale-105 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed whitespace-nowrap"
+                >
+                  {isLoading ? 'Cargando...' : 'Ver visualización'}
+                </button>
+              </div>
+            ) : (
+              <div
+                style={{
+                  width: iframeWidth,
+                  height: iframeHeight,
+                  transform: `scale(${scale})`,
+                  transformOrigin: 'top left'
+                }}
+              >
+                <iframe
+                  title="Dental Management System"
+                  src={url}
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  loading="lazy"
+                  onLoad={() => setIsLoading(false)}
+                />
+              </div>
+            )}
           </div>
         </div>
 

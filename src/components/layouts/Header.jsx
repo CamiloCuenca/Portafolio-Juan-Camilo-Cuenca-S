@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FiMenu, FiX } from "react-icons/fi";
+import { MenuIcon, CloseIcon } from "../common/SvgIcons";
 import ButtonDownload from "../common/ButtonDownload";
 
 export default function Header() {
@@ -25,7 +25,7 @@ export default function Header() {
           className="lg:hidden text-white focus:outline-none p-2 rounded-lg hover:bg-white/10 transition-all duration-300"
           onClick={() => setIsOpen(!isOpen)}
         >
-          {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+          {isOpen ? <CloseIcon size={24} /> : <MenuIcon size={24} />}
         </button>
 
         {/* Navegación */}

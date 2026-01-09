@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React from "react";
+
 
 const skills = [
   // Languages
@@ -46,8 +46,9 @@ const skills = [
   },
   {
     name: "Tailwind CSS",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/2560px-Tailwind_CSS_Logo.svg.png",
-    section: "Frameworks"
+    icon: "public/assets/Tailwind_CSS_Logo.svg.png",
+    section: "Frameworks",
+    loading: "lazy"
   },
   {
     name: "Bootstrap",
@@ -103,6 +104,7 @@ const SkillIcon = ({ icon, name }) => (
       <img 
         src={icon} 
         alt={name} 
+        loading="lazy"
         className="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 object-contain transition-all duration-300 group-hover:filter group-hover:drop-shadow-lg" 
       />
       <div className="absolute inset-0 bg-blue-500/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

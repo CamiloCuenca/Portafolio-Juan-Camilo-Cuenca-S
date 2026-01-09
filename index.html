@@ -14,8 +14,15 @@
     <meta property="og:url" content="https://portafolio-juan-camilo-cuenca-s.vercel.app/" />
     <meta property="og:image" content="/LogoMini.svg" />
     <meta name="google-site-verification" content="6rTXlW1GHsntncelq-H-Tkn4vXCzXgkE1NCeLa3Xzw4" />
-    <!-- Preload LCP hero image -->
-    <link rel="preload" as="image" href="/assets/FotoPerfil.png" fetchpriority="high" />
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" as="image" href="/assets/FotoPerfil.webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="/assets/Logo.svg" fetchpriority="high" />
+    
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="https://raw.githubusercontent.com" />
+    <link rel="dns-prefetch" href="https://upload.wikimedia.org" />
+    <link rel="dns-prefetch" href="https://camo.githubusercontent.com" />
   </head>
   <body>
     <div id="root"></div>

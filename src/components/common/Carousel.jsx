@@ -1,31 +1,30 @@
 import { useEffect, useMemo, useRef, useState, memo } from 'react';
-// replace icons with your own if needed
-import { FiCircle, FiCode, FiBox , FiLayers, FiLayout } from 'react-icons/fi';
+import { CircleIcon, CodeIcon, BoxIcon, LayersIcon, LayoutIcon } from './SvgIcons';
 
 const DEFAULT_ITEMS = [
   {
     title: '⏲️ Timer Pomodoro Inteligente',
     description: 'Sesiones de trabajo configurable (por defecto 25 minutos). Descansos cortos personalizables (por defecto 5 minutos). Descansos largos personalizables (por defecto 15 minutos). Pausar/Reanudar y reiniciar sesiones. Intercambio rápido entre sesiones de trabajo y descanso.',
     id: 1,
-    icon: <FiBox className="h-[16px] w-[16px] text-white" />
+    icon: <BoxIcon size={16} className="text-white" />
   },
   {
     title: '🎨 Temas Dinámicos',
     description: 'Elige entre 5 temas hermosos que transforman toda la interfaz: 🟢 Verde (fresco y natural), 🔵 Azul (calmo y profesional), 🟣 Púrpura (creativo y moderno), 🟠 Naranja (energético y motivador), 🔴 Rojo (intenso y llamativo). Cambiar tema afecta toda la app en tiempo real.',
     id: 2,
-    icon: <FiCircle className="h-[16px] w-[16px] text-white" />
+    icon: <CircleIcon size={16} className="text-white" />
   },
   {
     title: '📊 Estadísticas Detalladas',
     description: 'Racha semanal visual (lunes a domingo). Indicador de sesiones completadas con imagen de pomodoro. Gráficos de líneas para sesiones de trabajo y descanso. Seguimiento semanal de tu productividad.',
     id: 3,
-    icon: <FiLayers className="h-[16px] w-[16px] text-white" />
+    icon: <LayersIcon size={16} className="text-white" />
   },
   {
     title: '⚙️ Configuración Completa',
     description: 'Ajusta duraciones de sesiones de trabajo, descansos cortos y largos. Selector de temas personalizado. Configuración guardada automáticamente para tu comodidad.',
     id: 4,
-    icon: <FiLayout className="h-[16px] w-[16px] text-white" />
+    icon: <LayoutIcon size={16} className="text-white" />
   }
 ];
 
