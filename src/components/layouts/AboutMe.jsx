@@ -74,7 +74,7 @@ export default function AboutMe() {
           <div className="flex justify-center mt-8">
             <ButtonDownload
               color="bg-gradient-to-r from-blue-500 to-blue-400"
-              href={"/HV Juan Camilo Cuenca Sepúlveda.pdf"}
+              href={"/Hv-Juan-Camilo-Cuenca-Sepulveda-1004779025.pdf"}
               Name={"Visualizar CV"}
             />
           </div>

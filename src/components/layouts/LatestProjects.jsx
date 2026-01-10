@@ -97,10 +97,10 @@ export default function LatestProjects() {
     }, []);
 
     return (
-        <div ref={containerRef}>
+        <div ref={containerRef} className="w-full">
            
 
-            <div className="relative max-w-7xl mx-auto">
+            <div className="relative max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
                 {/* Header Section */}
                 <div className="text-center mb-8 sm:mb-12 lg:mb-16 px-4">
                     <div className="inline-block mb-4">
@@ -142,9 +142,9 @@ export default function LatestProjects() {
                 {/* Project Card with Animation */}
                 <div key={activeProject} className="animate-card-fade-in">
                     <div
-                        className="bg-white/80 backdrop-blur-sm rounded-2xl sm:rounded-3xl shadow-2xl border border-white/20 overflow-hidden mx-4 sm:mx-0"
+                        className="bg-white/80 backdrop-blur-sm rounded-xl sm:rounded-2xl lg:rounded-3xl shadow-2xl border border-white/20 overflow-hidden mx-2 sm:mx-4 lg:mx-0"
                     >
-                        <div className="p-6 sm:p-8 md:p-12">
+                        <div className="p-4 sm:p-6 lg:p-8 xl:p-12">
                             {/* Project Header */}
                             <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6 sm:mb-8 gap-4">
                                 <div>
@@ -169,13 +169,13 @@ export default function LatestProjects() {
 
                             {/* Content based on project type */}
                             {currentProject.type === 'mobile' ? (
-                                <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-start">
+                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 xl:gap-12 items-start">
                                     {/* Carousel Section */}
                                     <div className="flex flex-col items-center justify-center">
-                                        <h4 className="text-lg sm:text-xl font-semibold text-gray-800 mb-4 sm:mb-6 text-center">
+                                        <h4 className="text-base sm:text-lg lg:text-xl font-semibold text-gray-800 mb-3 sm:mb-4 lg:mb-6 text-center">
                                             🎯 Características Principales
                                         </h4>
-                                        <div className="w-full flex justify-center px-4">
+                                        <div className="w-full flex justify-center px-2 sm:px-0">
                                             {isVisible ? (
                                                 <Suspense fallback={<div style={{height: 180}} /> }>
                                                     <CarouselLazy
@@ -192,19 +192,19 @@ export default function LatestProjects() {
                                             )}
                                         </div>
 
-                                        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-4 sm:mt-6 w-full sm:w-auto px-4 sm:px-0">
+                                        <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 lg:gap-4 mt-3 sm:mt-4 lg:mt-6 w-full sm:w-auto px-2 sm:px-0">
                                             <a 
                                                 href={currentProject.url}
                                                 target="_blank" 
                                                 rel="noopener noreferrer"
-                                                className="px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded-lg sm:rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 text-sm sm:text-base text-center whitespace-nowrap"
+                                                className="flex-1 sm:flex-none px-3 sm:px-4 lg:px-6 py-2 sm:py-2.5 lg:py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded-lg lg:rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 text-xs sm:text-sm lg:text-base text-center whitespace-nowrap"
                                             >
                                                 Ver App en web
                                             </a>
 
                                             <button
                                                 onClick={handleShowApkModal}
-                                                className="px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-semibold rounded-lg sm:rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 text-sm sm:text-base whitespace-nowrap"
+                                                className="flex-1 sm:flex-none px-3 sm:px-4 lg:px-6 py-2 sm:py-2.5 lg:py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-semibold rounded-lg lg:rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 text-xs sm:text-sm lg:text-base whitespace-nowrap"
                                             >
                                                 Descargar APK
                                             </button>
@@ -213,7 +213,7 @@ export default function LatestProjects() {
 
                                     {/* Mobile Preview Section */}
                                     <div className="flex flex-col items-center justify-center">
-                                        <h4 className="text-lg sm:text-xl font-semibold text-gray-800 mb-4 sm:mb-6 text-center">
+                                        <h4 className="text-base sm:text-lg lg:text-xl font-semibold text-gray-800 mb-3 sm:mb-4 lg:mb-6 text-center">
                                             📱 Vista Previa en Vivo
                                         </h4>
                                         <div className="transform hover:scale-105 transition-transform duration-300 w-full flex justify-center">
@@ -230,43 +230,43 @@ export default function LatestProjects() {
                             ) : (
                                 /* Desktop Preview */
                                 <div className="flex flex-col items-center justify-center">
-                                    <h4 className="text-lg sm:text-xl font-semibold text-gray-800 mb-4 sm:mb-6 text-center">
+                                    <h4 className="text-base sm:text-lg lg:text-xl font-semibold text-gray-800 mb-3 sm:mb-4 lg:mb-6 text-center">
                                         💻 Vista de Escritorio
                                     </h4>
                                     
                                     {/* Credenciales de prueba */}
-                                    <div className="mb-6 w-full max-w-2xl bg-gradient-to-r from-cyan-50 to-blue-50 border-l-4 border-cyan-500 rounded-lg p-4 sm:p-6 shadow-md">
-                                        <h5 className="font-bold text-gray-800 mb-3 sm:mb-4 flex items-center gap-2 text-sm sm:text-base">
+                                    <div className="mb-4 sm:mb-6 w-full max-w-2xl bg-gradient-to-r from-cyan-50 to-blue-50 border-l-4 border-cyan-500 rounded-lg p-3 sm:p-4 lg:p-6 shadow-md">
+                                        <h5 className="font-bold text-gray-800 mb-2 sm:mb-3 lg:mb-4 flex items-center gap-2 text-xs sm:text-sm lg:text-base">
                                             🔐 Datos para Acceder al Sistema
                                         </h5>
-                                        <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
-                                            <div className="bg-white/70 rounded-lg p-4 border border-cyan-200">
-                                                <p className="font-semibold text-cyan-700 mb-2">👨‍⚕️ Administrador</p>
-                                                <p className="text-sm text-gray-700"><span className="font-medium">Usuario:</span> 444444446</p>
-                                                <p className="text-sm text-gray-700"><span className="font-medium">Contraseña:</span> C@ntraseña123</p>
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 lg:gap-4">
+                                            <div className="bg-white/70 rounded-lg p-3 sm:p-4 border border-cyan-200">
+                                                <p className="font-semibold text-cyan-700 mb-2 text-sm">👨‍⚕️ Administrador</p>
+                                                <p className="text-xs sm:text-sm text-gray-700"><span className="font-medium">Usuario:</span> 444444446</p>
+                                                <p className="text-xs sm:text-sm text-gray-700"><span className="font-medium">Contraseña:</span> C@ntraseña123</p>
                                             </div>
-                                            <div className="bg-white/70 rounded-lg p-4 border border-blue-200">
-                                                <p className="font-semibold text-blue-700 mb-2">🧑 Paciente de Prueba</p>
-                                                <p className="text-sm text-gray-700"><span className="font-medium">Usuario:</span> 555555556</p>
-                                                <p className="text-sm text-gray-700"><span className="font-medium">Contraseña:</span> C@ntraseña123</p>
+                                            <div className="bg-white/70 rounded-lg p-3 sm:p-4 border border-blue-200">
+                                                <p className="font-semibold text-blue-700 mb-2 text-sm">🧑 Paciente de Prueba</p>
+                                                <p className="text-xs sm:text-sm text-gray-700"><span className="font-medium">Usuario:</span> 555555556</p>
+                                                <p className="text-xs sm:text-sm text-gray-700"><span className="font-medium">Contraseña:</span> C@ntraseña123</p>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div className="w-full flex justify-center">
+                                    <div className="w-full flex justify-center px-2 sm:px-0">
                                         {isVisible ? (
-                                            <Suspense fallback={<div className="w-full h-[180px] bg-white/40 rounded-xl" /> }>
+                                            <Suspense fallback={<div className="w-full h-[150px] sm:h-[180px] bg-white/40 rounded-lg lg:rounded-xl" /> }>
                                                 <MonitorDesktop url={currentProject.url} />
                                             </Suspense>
                                         ) : (
-                                            <div className="w-full h-[180px] bg-white/40 rounded-xl" />
+                                            <div className="w-full h-[150px] sm:h-[180px] bg-white/40 rounded-lg lg:rounded-xl" />
                                         )}
                                     </div>
                                     <a 
                                         href={currentProject.url}
                                         target="_blank" 
                                         rel="noopener noreferrer"
-                                        className="mt-4 sm:mt-6 lg:mt-8 px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold rounded-lg sm:rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 text-sm sm:text-base"
+                                        className="mt-3 sm:mt-4 lg:mt-6 xl:mt-8 px-4 sm:px-6 lg:px-8 py-2 sm:py-2.5 lg:py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold rounded-lg lg:rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 text-xs sm:text-sm lg:text-base w-full sm:w-auto text-center"
                                     >
                                         Ver Sistema en Vivo →
                                     </a>
@@ -277,20 +277,20 @@ export default function LatestProjects() {
                 </div>
 
                 {/* Navigation Arrows */}
-                <div className="flex justify-center gap-4 mt-8">
+                <div className="flex justify-center gap-2 sm:gap-4 mt-6 sm:mt-8 px-4">
                     <button
                         onClick={() => setActiveProject((prev) => (prev === 0 ? projects.length - 1 : prev - 1))}
-                        className="p-4 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-white/20 hover:scale-110 transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white group"
+                        className="p-2 sm:p-4 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-white/20 hover:scale-110 transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white group"
                     >
-                        <svg className="w-6 h-6 text-gray-700 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                         </svg>
                     </button>
                     <button
                         onClick={() => setActiveProject((prev) => (prev === projects.length - 1 ? 0 : prev + 1))}
-                        className="p-4 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-white/20 hover:scale-110 transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white group"
+                        className="p-2 sm:p-4 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-white/20 hover:scale-110 transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white group"
                     >
-                        <svg className="w-6 h-6 text-gray-700 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
                     </button>
@@ -306,7 +306,7 @@ export default function LatestProjects() {
                     >
                         <div
                             onClick={(e) => e.stopPropagation()}
-                            className={`relative bg-gradient-to-br from-white via-blue-50 to-purple-50 rounded-3xl p-8 shadow-2xl border border-white/20 max-w-lg w-full ${
+                            className={`relative bg-gradient-to-br from-white via-blue-50 to-purple-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-2xl border border-white/20 max-w-lg w-full mx-2 ${
                                 modalExiting ? 'animate-modal-exit' : 'animate-modal-spring'
                             }`}
                         >
@@ -322,48 +322,48 @@ export default function LatestProjects() {
 
                             {/* Contenido del modal */}
                             <div className="text-center">
-                                <div className="mb-6">
-                                    <div className="text-6xl mb-4">🔒</div>
-                                    <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
+                                <div className="mb-4 sm:mb-6">
+                                    <div className="text-5xl sm:text-6xl mb-3 sm:mb-4">🔒</div>
+                                    <h3 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
                                         Descarga Segura
                                     </h3>
                                 </div>
 
-                                <div className="bg-white/70 rounded-2xl p-6 mb-6 text-left space-y-4">
-                                    <div className="flex items-start gap-3">
-                                        <span className="text-2xl">✅</span>
-                                        <p className="text-gray-700 flex-1">
+                                <div className="bg-white/70 rounded-2xl p-4 sm:p-6 mb-4 sm:mb-6 text-left space-y-3 sm:space-y-4">
+                                    <div className="flex items-start gap-2 sm:gap-3">
+                                        <span className="text-xl sm:text-2xl flex-shrink-0">✅</span>
+                                        <p className="text-xs sm:text-sm lg:text-base text-gray-700 flex-1">
                                             <span className="font-semibold">Esta APK es segura</span> y ha sido compilada directamente desde el código fuente oficial.
                                         </p>
                                     </div>
-                                    <div className="flex items-start gap-3">
-                                        <span className="text-2xl">📦</span>
-                                        <p className="text-gray-700 flex-1">
+                                    <div className="flex items-start gap-2 sm:gap-3">
+                                        <span className="text-xl sm:text-2xl flex-shrink-0">📦</span>
+                                        <p className="text-xs sm:text-sm lg:text-base text-gray-700 flex-1">
                                             También puedes encontrar esta APK en el <a href="https://github.com/CamiloCuenca/PomoTimerFlow" target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-600 hover:text-blue-800 underline">repositorio del proyecto</a> en GitHub.
                                         </p>
                                     </div>
-                                    <div className="flex items-start gap-3">
-                                        <span className="text-2xl">📱</span>
-                                        <p className="text-gray-700 flex-1">
+                                    <div className="flex items-start gap-2 sm:gap-3">
+                                        <span className="text-xl sm:text-2xl flex-shrink-0">📱</span>
+                                        <p className="text-xs sm:text-sm lg:text-base text-gray-700 flex-1">
                                             Se debe instalar en <span className="font-semibold">dispositivos móviles Android</span>.
                                         </p>
                                     </div>
                                 </div>
 
-                                <div className="flex flex-col gap-3">
+                                <div className="flex flex-col gap-2 sm:gap-3">
                                     <a
                                         href="https://github.com/CamiloCuenca/PomoTimerFlow/releases/download/v1.2.0/application-1f15654b-7579-4747-b034-d6c55e1a1dae.apk"
                                         download="PomoTimerFlow.apk"
-                                        className="px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+                                        className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold rounded-lg sm:rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base"
                                     >
-                                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                                         </svg>
                                         Descargar APK
                                     </a>
                                     <button
                                         onClick={handleCloseApkModal}
-                                        className="px-8 py-3 bg-gray-200 text-gray-700 font-semibold rounded-xl hover:bg-gray-300 transition-all duration-300"
+                                        className="px-6 sm:px-8 py-2.5 sm:py-3 bg-gray-200 text-gray-700 font-semibold rounded-lg sm:rounded-xl hover:bg-gray-300 transition-all duration-300 text-sm sm:text-base"
                                     >
                                         Cancelar
                                     </button>

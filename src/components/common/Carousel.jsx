@@ -152,8 +152,8 @@ const CarouselMemo = memo(function Carousel({
   return (
     <div
       ref={containerRef}
-      className={`relative overflow-hidden p-5 backdrop-blur-sm ${
-        round ? 'rounded-full border border-white/30 bg-white/5' : 'rounded-[28px] border border-blue-200/30 bg-white/5 shadow-2xl'
+      className={`relative overflow-hidden p-3 sm:p-5 backdrop-blur-sm w-full max-w-sm md:max-w-md lg:max-w-lg ${
+        round ? 'rounded-full border border-white/30 bg-white/5' : 'rounded-[20px] sm:rounded-[28px] border border-blue-200/30 bg-white/5 shadow-2xl'
       }`}
       style={{
         width: `${baseWidth}px`,
@@ -179,15 +179,15 @@ const CarouselMemo = memo(function Carousel({
           />
         ))}
       </div>
-      <div className={`flex w-full justify-center ${round ? 'absolute z-20 bottom-12 left-1/2 -translate-x-1/2' : ''}`}>
-        <div className="mt-6 flex gap-3">
+      <div className={`flex w-full justify-center ${round ? 'absolute z-20 bottom-10 sm:bottom-12 left-1/2 -translate-x-1/2' : ''}`}>
+        <div className="mt-4 sm:mt-6 flex gap-2 sm:gap-3">
           {items.map((_, index) => (
             <button
               key={index}
               className={`rounded-full cursor-pointer transition-all duration-200 ${
                 activeIndex === index
-                  ? 'h-2.5 w-8 bg-gradient-to-r from-blue-500 to-purple-500 shadow-lg shadow-blue-500/50'
-                  : 'h-2.5 w-2.5 bg-gray-400/50 hover:bg-gray-400/80'
+                  ? 'h-2 sm:h-2.5 w-6 sm:w-8 bg-gradient-to-r from-blue-500 to-purple-500 shadow-lg shadow-blue-500/50'
+                  : 'h-2 sm:h-2.5 w-2 sm:w-2.5 bg-gray-400/50 hover:bg-gray-400/80'
               }`}
               onClick={() => setPosition(loop ? index + 1 : index)}
               aria-label={`Ir al slide ${index + 1}`}
