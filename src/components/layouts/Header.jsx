@@ -93,7 +93,7 @@ export default function Header() {
           {/* Botón CV móvil */}
           <li className="block lg:hidden mt-6 mb-2">
             <ButtonDownload
-              href={"/HV Juan Camilo Cuenca Sepúlveda.pdf"}
+              href={"/Hv-Juan-Camilo-Cuenca-Sepulveda-1004779025.pdf"}
               Name={"Visualizar CV"}
             />
           </li>
@@ -102,7 +102,7 @@ export default function Header() {
         {/* Botón CV escritorio */}
         <div className="hidden lg:flex">
           <ButtonDownload
-            href={"/HV Juan Camilo Cuenca Sepúlveda.pdf"}
+            href={"/Hv-Juan-Camilo-Cuenca-Sepulveda-1004779025.pdf"}
             Name={"Visualizar CV"}
           />
         </div>

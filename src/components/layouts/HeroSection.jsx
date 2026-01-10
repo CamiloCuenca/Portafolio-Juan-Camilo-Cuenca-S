@@ -27,7 +27,6 @@ export default function HeroSection() {
                   className="w-full h-full object-cover rounded-full transition-transform duration-500 group-hover:scale-110 will-change-transform transform-gpu"
                   loading="eager"
                   decoding="async"
-                  fetchpriority="high"
                   sizes="(min-width: 1024px) 18rem, (min-width: 768px) 16rem, 14rem"
                   width="512"
                   height="512"
@@ -56,7 +55,7 @@ export default function HeroSection() {
             </button>
 
             <ButtonDownload
-              href="/HV Juan Camilo Cuenca Sepúlveda.pdf"
+              href="/Hv-Juan-Camilo-Cuenca-Sepulveda-1004779025.pdf"
               Name="Visualizar CV"
               color="bg-white/10 border border-white/20 text-white"
             />
