@@ -102,7 +102,7 @@ export default function Header() {
         {/* Botón CV escritorio */}
         <div className="hidden lg:flex">
           <ButtonDownload
-            href={"/Hv-Juan-Camilo-Cuenca-Sepulveda-1004779025.pdf"}
+              href={"/Hv-Juan-Camilo-Cuenca-Sepulveda-1004779025.pdf"}
             Name={"Visualizar CV"}
           />
         </div>

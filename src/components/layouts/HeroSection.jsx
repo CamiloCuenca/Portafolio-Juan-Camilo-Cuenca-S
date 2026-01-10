@@ -4,16 +4,14 @@ import HeroText from "../common/HeroText";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[85vh] overflow-hidden bg-slate-950">
+    <section className="relative min-h-[15vh] overflow-hidden bg-slate-950">
 
-      {/* ✨ CAPAS DE GRADIENTES Y EFECTOS */}
       <div className="absolute inset-0 z-10 bg-gradient-to-br from-slate-950/90 via-blue-900/80 to-slate-900/90 pointer-events-none" />
       <div className="absolute inset-0 z-10 bg-gradient-to-r from-blue-500/5 via-purple-400/5 to-blue-400/5 pointer-events-none" />
       <div className="absolute -top-12 -left-8 z-10 h-80 w-80 rounded-full bg-blue-500/10 blur-3xl pointer-events-none" />
       <div className="absolute -bottom-16 -right-10 z-10 h-[26rem] w-[26rem] rounded-full bg-purple-400/10 blur-3xl pointer-events-none" />
       <div className="absolute inset-0 z-10 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.05),transparent_25%),radial-gradient(circle_at_80%_0%,rgba(102,126,234,0.08),transparent_30%),radial-gradient(circle_at_50%_80%,rgba(56,189,248,0.05),transparent_25%)] pointer-events-none" />
 
-      {/* 🚀 CONTENIDO */}
       <div className="relative z-20 mx-auto flex max-w-7xl flex-col items-center gap-12 px-4 py-24 md:flex-row md:gap-16 lg:gap-20">
         
         {/* Imagen */}

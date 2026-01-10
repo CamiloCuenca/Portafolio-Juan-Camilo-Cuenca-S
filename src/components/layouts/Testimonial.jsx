@@ -27,7 +27,7 @@ Como desarrollador full stack móvil y estudiante universitario, demuestra una g
         <div className="flex items-start gap-4">
           <a href="https://www.linkedin.com/in/jazminrr/">
             <img
-              src="https://media.licdn.com/dms/image/v2/D4D03AQEVqIThXcznyw/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1720613213820?e=1757548800&v=beta&t=LWbvxEJRx8ZBjlz0_eJ_tkwf4z2IfY4ax43JwVSN33U"
+              src="https://media.licdn.com/dms/image/v2/D4D03AQEVqIThXcznyw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1720613213820?e=1769644800&v=beta&t=UbdTftblAZ6SwHeFFySQNX9pT-32ONq_G6hHJ4QWOOU"
               alt="Jazmín Rincón Rodríguez"
               className="w-14 h-14 rounded-full object-cover"
             />
