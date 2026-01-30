@@ -2,6 +2,8 @@ import React from "react";
 import { GitHubIcon, LinkedinIcon, MailIcon, CopyIcon } from "../common/SvgIcons";
 import { useCopyEmail } from "../../hooks/useCopyEmail";
 import ButtonDownload from "../common/ButtonDownload";
+import {SiGoogleplay} from "react-icons/si";
+import {ImGoogle} from "react-icons/im";
 
 export default function AboutMe() {
   const { copied, handleCopyEmail } = useCopyEmail();
@@ -24,35 +26,51 @@ export default function AboutMe() {
         </div>
 
         {/* Redes sociales y contacto */}
-        <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
-          <h2 className="text-heading-4 mb-8 text-gray-800 text-center">
-            Mis Redes y Contacto
-          </h2>
-
-          {/* Enlaces sociales */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-            <a
+        {/* Enlaces sociales */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 max-w-3xl mx-auto">
+          <a
               href="https://github.com/CamiloCuenca"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-center gap-3 px-6 py-3 rounded-lg border-2 border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white transition-all duration-300 hover:scale-105"
-            >
-              <GitHubIcon size={24} className="group-hover:animate-pulse" />
-              <span className="font-medium">GitHub</span>
-            </a>
+              className="group flex items-center justify-center gap-3 h-12 rounded-lg border-2 border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white transition-all duration-300 hover:scale-105"
+          >
+            <GitHubIcon size={22} className="group-hover:animate-pulse" />
+            <span className="font-medium">GitHub</span>
+          </a>
 
-            <a
+          <a
               href="https://www.linkedin.com/in/juan-camilo-cuenca-sepulveda/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-center gap-3 px-6 py-3 rounded-lg border-2 border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white transition-all duration-300 hover:scale-105"
-            >
-              <LinkedinIcon size={24} className="group-hover:animate-pulse" />
-              <span className="font-medium">LinkedIn</span>
-            </a>
-          </div>
+              className="group flex items-center justify-center gap-3 h-12 rounded-lg border-2 border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white transition-all duration-300 hover:scale-105"
+          >
+            <LinkedinIcon size={22} className="group-hover:animate-pulse" />
+            <span className="font-medium">LinkedIn</span>
+          </a>
 
-          {/* Correo electrónico */}
+          <a
+              href="https://play.google.com/store/apps/dev?id=5684816131315050097"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center justify-center gap-3 h-12 rounded-lg border-2 border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white transition-all duration-300 hover:scale-105"
+          >
+            <SiGoogleplay size={22} className="group-hover:animate-pulse" />
+            <span className="font-medium">Google Play</span>
+          </a>
+
+          <a
+              href="https://g.dev/JuanCamiloCuencaS"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center justify-center gap-3 h-12 rounded-lg border-2 border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white transition-all duration-300 hover:scale-105"
+          >
+            <ImGoogle size={22} className="group-hover:animate-pulse" />
+            <span className="font-medium">Google Developer</span>
+          </a>
+        </div>
+
+
+        {/* Correo electrónico */}
           <div className="flex items-center justify-center gap-3 px-6 py-3 rounded-lg border-2 border-gray-300 text-gray-700 bg-gray-50">
             <MailIcon size={20} className="text-blue-500" />
             <span className="text-body font-medium select-all">camilocuencadev@gmail.com</span>
@@ -79,7 +97,9 @@ export default function AboutMe() {
             />
           </div>
         </div>
-      </div>
+
+
+
     </section>
   );
 }

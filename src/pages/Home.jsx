@@ -43,24 +43,8 @@ export default function Home() {
 
       {/* Main Content Section */}
       <div className="container mx-auto px-6 mt-12 max-w-5xl">
-        {/* About Me and Skills Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 gap-y-8 mb-12">
-        
-        
-          {/* About Me */}
-          <div className="p-4  rounded-2xl ">
-            <Suspense fallback={<div className="h-40 bg-white/40 rounded-xl" /> }>
-              <AboutMe />
-            </Suspense>
-          </div>
 
-          {/* Skills */}
-          <div className="p-4  rounded-2xl flex flex-col justify-between">
-            <Suspense fallback={<div className="h-40 bg-white/40 rounded-xl" /> }>
-              <Skills />
-            </Suspense>
-          </div>
-        </div>
+
 
         {/* Education and Experience Section */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 gap-y-8 mb-12">
@@ -78,6 +62,26 @@ export default function Home() {
             </Suspense>
           </div>
         </div>
+
+        {/* About Me and Skills Section */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 gap-y-8 mb-12">
+
+          {/* About Me */}
+          <div className="p-4  rounded-2xl ">
+            <Suspense fallback={<div className="h-40 bg-white/40 rounded-xl" /> }>
+              <AboutMe />
+            </Suspense>
+          </div>
+
+          {/* Skills */}
+          <div className="p-4  rounded-2xl flex flex-col justify-between">
+            <Suspense fallback={<div className="h-40 bg-white/40 rounded-xl" /> }>
+              <Skills />
+            </Suspense>
+          </div>
+        </div>
+
+
 
         <Suspense fallback={<div className="h-40 bg-white/40 rounded-xl" /> }>
           <LatestProjects />

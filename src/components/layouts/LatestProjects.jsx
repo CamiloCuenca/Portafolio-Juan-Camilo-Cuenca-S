@@ -106,7 +106,7 @@ export default function LatestProjects() {
                     <div className="inline-block mb-4">
                        
                     </div>
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent mb-4">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold  mb-4">
                         Últimos Proyectos
                     </h1>
                     <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg px-4">

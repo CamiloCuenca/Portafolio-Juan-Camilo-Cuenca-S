@@ -12,12 +12,17 @@ export default function Education() {
           <p className="text-gray-600">Universidad del Quindío | 2021 - En curso</p>
         </div>
   
-        <div>
-          <h3 className="text-heading-4">Diplomado en Desarrollo de Aplicaciones Móviles</h3>
-          <p className="text-gray-600">Universidad Tecnológica de Pereira - MinTic | 2021</p>
-          <p className="text-gray-500">(800 Horas)</p>
-        </div>
+
       </div>
+
+
+          <div className="p-4 bg-white rounded-lg shadow-md  mt-5">
+            <div>
+              <h3 className="text-heading-4">Diplomado en Desarrollo de Aplicaciones Móviles</h3>
+              <p className="text-gray-600">Universidad Tecnológica de Pereira - MinTic | 2021</p>
+              <p className="text-gray-500">(800 Horas)</p>
+            </div>
+          </div>
       </div>
     );
   }
