@@ -71,7 +71,7 @@ main {
   align-items: center;
 }
 
-/* Footer y Header deben ocupar todo el ancho */
+
 header,
 footer {
   width: 100%;

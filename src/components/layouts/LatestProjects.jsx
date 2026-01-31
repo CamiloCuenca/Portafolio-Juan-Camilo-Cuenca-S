@@ -129,7 +129,7 @@ export default function LatestProjects() {
                             >
                                 {activeProject === index && (
                                     <div
-                                        className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 rounded-lg sm:rounded-xl shadow-lg animate-tab-highlight"
+                                        className="absolute inset-0 bg-primary sm:rounded-xl shadow-lg animate-tab-highlight"
                                     />
                                 )}
                                 <span className="relative z-10 text-xl sm:text-2xl">{project.emoji}</span>
