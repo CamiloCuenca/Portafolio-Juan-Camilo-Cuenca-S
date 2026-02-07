@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useLanguage } from '../../i18n/LanguageProvider';
 
 export default function Testimonial() {
   const [isExpanded, setIsExpanded] = useState(false);
+  const { t } = useLanguage();
 
   const fullText = `
 Juan Camilo ha sido un gran compañero en el voluntariado de Inspiranza en el que colaboramos. 
@@ -20,7 +22,7 @@ Como desarrollador full stack móvil y estudiante universitario, demuestra una g
   return (
       <section className="w-full max-w-4xl mx-auto px-4 py-12">
         <h2 className="text-heading-1 text-gray-800 mb-8">
-          Recomendaciones y Testimonios
+          {t('testimonials_title') || 'Recomendaciones y Testimonios'}
         </h2>
 
         <div
@@ -110,7 +112,7 @@ Como desarrollador full stack móvil y estudiante universitario, demuestra una g
             transition-all
           "
           >
-            {isExpanded ? "Ver menos" : "Ver más"}
+            {isExpanded ? t('read_less') : t('read_more')}
           </button>
         </div>
       </section>

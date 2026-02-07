@@ -1,8 +1,10 @@
 import React from "react";
 import ButtonDownload from "../common/ButtonDownload";
 import HeroText from "../common/HeroText";
+import { useLanguage } from "../../i18n/LanguageProvider";
 
 export default function HeroSection() {
+    const { t } = useLanguage();
     return (
         <section className="relative min-h-[70vh] md:min-h-[60vh] overflow-hidden bg-slate-950">
 
@@ -38,7 +40,7 @@ export default function HeroSection() {
                     <HeroText width="w-full max-w-2xl" height="h-full" />
 
                     <p className="text-lg sm:text-xl text-gray-100/90 max-w-2xl leading-relaxed">
-                        Desarrollador Full Stack Móvil que mezcla ingeniería y diseño para crear experiencias digitales memorables y productos listos para producción.
+                        {t('hero_intro')}
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 pt-2">
@@ -48,12 +50,12 @@ export default function HeroSection() {
                             }
                             className="px-6 py-3 rounded-xl bg-gradient-to-r from-blue-500 via-indigo-500 to-cyan-400 text-white font-semibold shadow-lg shadow-blue-900/50 transition-all hover:scale-105"
                         >
-                            Ver Proyectos
+                            {t('hero_cta_projects')}
                         </button>
 
                         <ButtonDownload
                             href="/Hv-Juan-Camilo-Cuenca-Sepulveda-1004779025.pdf"
-                            Name="Visualizar CV"
+                            Name={t('view_cv')}
                             color="bg-white/10 border border-white/20 text-white"
                         />
                     </div>

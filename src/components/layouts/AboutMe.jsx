@@ -4,25 +4,25 @@ import { useCopyEmail } from "../../hooks/useCopyEmail";
 import ButtonDownload from "../common/ButtonDownload";
 import {SiGoogleplay} from "react-icons/si";
 import {ImGoogle} from "react-icons/im";
+import { useLanguage } from '../../i18n/LanguageProvider';
 
 export default function AboutMe() {
   const { copied, handleCopyEmail } = useCopyEmail();
+  const { t } = useLanguage();
   return (
     <section id="about" className="max-w-4xl mx-auto px-6 py-12 md:py-16">
       <div className="text-center mb-12">
-        <h1 className="text-heading-2 mb-4 text-gray-800">Acerca de mí</h1>
+        <h1 className="text-heading-2 mb-4 text-gray-800">{t('about')}</h1>
         <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-400 mx-auto rounded-full"></div>
       </div>
       
       <div className="space-y-8">
         {/* Información principal */}
         <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
-          <p className="text-body-large leading-relaxed text-gray-700 space-y-4">
-            <strong className="text-blue-600">¡Hola!</strong> Soy Juan Camilo Cuenca Sepúlveda, estudiante de <strong className="text-blue-600">Ingeniería en Sistemas y Computación</strong> en la <strong className="text-blue-600">Universidad del Quindío</strong>, con un enfoque en el desarrollo de aplicaciones móviles y tecnologías web modernas. Tengo experiencia trabajando con <strong className="text-blue-600">Java</strong>, <strong className="text-blue-600">Spring Boot</strong>, <strong className="text-blue-600">React</strong>, <strong className="text-blue-600">React Native</strong> entre otros, lo que me ha permitido crear aplicaciones eficientes y escalables.
-            <br />
-            <br />
-            A través del programa <strong className="text-blue-600">MisionTic 2022</strong>, he podido fortalecer mis habilidades técnicas y aprender a trabajar de manera ágil y efectiva en proyectos colaborativos. Estoy siempre en busca de nuevos desafíos para seguir creciendo profesionalmente.
-          </p>
+          <div
+            className="text-body-large leading-relaxed text-gray-700 space-y-4"
+            dangerouslySetInnerHTML={{ __html: t('about_bio_html') }}
+          />
         </div>
 
         {/* Redes sociales y contacto */}
@@ -35,7 +35,7 @@ export default function AboutMe() {
               className="group flex items-center justify-center gap-3 h-12 rounded-lg border-2 border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white transition-all duration-300 hover:scale-105"
           >
             <GitHubIcon size={22} className="group-hover:animate-pulse" />
-            <span className="font-medium">GitHub</span>
+            <span className="font-medium">{t('github')}</span>
           </a>
 
           <a
@@ -45,7 +45,7 @@ export default function AboutMe() {
               className="group flex items-center justify-center gap-3 h-12 rounded-lg border-2 border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white transition-all duration-300 hover:scale-105"
           >
             <LinkedinIcon size={22} className="group-hover:animate-pulse" />
-            <span className="font-medium">LinkedIn</span>
+            <span className="font-medium">{t('linkedin')}</span>
           </a>
 
           <a
@@ -55,7 +55,7 @@ export default function AboutMe() {
               className="group flex items-center justify-center gap-3 h-12 rounded-lg border-2 border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white transition-all duration-300 hover:scale-105"
           >
             <SiGoogleplay size={22} className="group-hover:animate-pulse" />
-            <span className="font-medium">Google Play</span>
+            <span className="font-medium">{t('google_play')}</span>
           </a>
 
           <a
@@ -65,7 +65,7 @@ export default function AboutMe() {
               className="group flex items-center justify-center gap-3 h-12 rounded-lg border-2 border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white transition-all duration-300 hover:scale-105"
           >
             <ImGoogle size={22} className="group-hover:animate-pulse" />
-            <span className="font-medium">Google Developer</span>
+            <span className="font-medium">{t('google_dev')}</span>
           </a>
         </div>
 
@@ -73,17 +73,17 @@ export default function AboutMe() {
         {/* Correo electrónico */}
           <div className="flex items-center justify-center gap-3 px-6 py-3 rounded-lg border-2 border-gray-300 text-gray-700 bg-gray-50">
             <MailIcon size={20} className="text-blue-500" />
-            <span className="text-body font-medium select-all">camilocuencadev@gmail.com</span>
+            <span className="text-body font-medium select-all">{t('email')}</span>
             <button
               onClick={handleCopyEmail}
               className="p-2 rounded-lg hover:bg-blue-100 transition-all duration-300 hover:scale-110"
-              title="Copiar correo"
+              title={t('copied')}
             >
               <CopyIcon size={18} className="text-blue-500" />
             </button>
             {copied && (
               <span className="text-green-500 text-body-small font-medium animate-pulse">
-                ¡Copiado!
+                {t('copied')}
               </span>
             )}
           </div>
@@ -93,7 +93,7 @@ export default function AboutMe() {
             <ButtonDownload
               color="bg-gradient-to-r from-blue-500 to-blue-400"
               href={"/Hv-Juan-Camilo-Cuenca-Sepulveda-1004779025.pdf"}
-              Name={"Visualizar CV"}
+              Name={t('view_cv')}
             />
           </div>
         </div>

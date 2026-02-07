@@ -1,9 +1,11 @@
 import { GitHubIcon, LinkedinIcon, MailIcon, CopyIcon } from "../common/SvgIcons";
 import { useCopyEmail } from "../../hooks/useCopyEmail";
 import React from "react";
+import { useLanguage } from '../../i18n/LanguageProvider';
 
 export default function Footer() {
   const { copied, handleCopyEmail } = useCopyEmail();
+  const { t } = useLanguage();
 
   return (
     <footer className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-8 md:py-12 border-t border-gray-700">
@@ -15,7 +17,7 @@ export default function Footer() {
               © {new Date().getFullYear()} Juan Camilo Cuenca
             </p>
             <p className="text-body-small text-gray-400 mt-1">
-              Desarrollador Full Stack Móvil
+              {t('hero_intro')}
             </p>
           </div>
 
@@ -30,7 +32,7 @@ export default function Footer() {
               <div className="p-2 bg-white/10 rounded-lg group-hover:bg-white/20 transition-colors duration-300">
                 <GitHubIcon size={18} />
               </div>
-              <span className="font-medium text-body">GitHub</span>
+              <span className="font-medium text-body">{t('github')}</span>
             </a>
 
             <a
@@ -42,7 +44,7 @@ export default function Footer() {
               <div className="p-2 bg-white/10 rounded-lg group-hover:bg-white/20 transition-colors duration-300">
                 <LinkedinIcon size={18} />
               </div>
-              <span className="font-medium text-body">LinkedIn</span>
+              <span className="font-medium text-body">{t('linkedin')}</span>
             </a>
 
             {/* Correo electrónico */}
@@ -51,18 +53,18 @@ export default function Footer() {
                 <MailIcon size={18} />
               </div>
               <span className="text-body-small md:text-body font-medium select-all">
-                camilocuencadev@gmail.com
+                {t('email')}
               </span>
               <button
                 onClick={handleCopyEmail}
                 className="group p-2 rounded-lg hover:bg-white/10 transition-all duration-300 hover:scale-110"
-                title="Copiar correo"
+                title={t('copied')}
               >
                 <CopyIcon size={18} className="group-hover:text-blue-400 transition-colors duration-300" />
               </button>
               {copied && (
                 <span className="text-green-400 text-body-small font-medium animate-pulse">
-                  ¡Copiado!
+                  {t('copied')}
                 </span>
               )}
             </div>
@@ -75,7 +77,7 @@ export default function Footer() {
         {/* Información adicional */}
         <div className="text-center mt-6">
           <p className="text-body-small text-gray-400">
-            Construido con React, Tailwind CSS y mucho ❤️
+            {t('built_with')}
           </p>
         </div>
       </div>
