@@ -2,6 +2,7 @@ import React from 'react';
 import CardCertificates from "../common/CardCertificates";
 import useCertificates from '../../hooks/usecertificates';
 import { useState, useMemo, useEffect } from 'react';
+import { useLanguage } from '../../i18n/LanguageProvider';
 
 function useIsSmallScreen() {
   const [isSmall, setIsSmall] = useState(false);
@@ -21,11 +22,12 @@ export default function Certificates() {
     const isSmallScreen = useIsSmallScreen();
     const totalPages = Math.ceil(certificates.length / perPage);
     const paginated = useMemo(() => certificates.slice((page - 1) * perPage, page * perPage), [certificates, page]);
+    const { t } = useLanguage();
 
     return (
         <section className="max-w-6xl mx-auto px-6 py-12 md:py-16">
             <div className="text-center mb-12">
-                <h2 className="text-heading-2 mb-4 text-gray-800">Certificados</h2>
+                <h2 className="text-heading-2 mb-4 text-gray-800">{t('certificates_title')}</h2>
                 <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-400 mx-auto rounded-full"></div>
             </div>
             
@@ -36,10 +38,11 @@ export default function Certificates() {
                         <button
                             onClick={() => setPage(page - 1)}
                             disabled={page === 1}
+                            aria-label={t('pagination_prev')}
                             className="px-4 py-2 rounded-lg bg-blue-500 text-white disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-600 transition-all duration-300 text-body-small font-medium min-w-[80px]"
                         >
                             <span className="inline sm:hidden">←</span>
-                            <span className="hidden sm:inline">Anterior</span>
+                            <span className="hidden sm:inline">{t('pagination_prev')}</span>
                         </button>
                         
                         {/* Elipsis inicial */}
@@ -60,6 +63,8 @@ export default function Certificates() {
                                 <button
                                     key={i}
                                     onClick={() => setPage(i)}
+                                    aria-label={`${t('pagination_prev')} ${i}`}
+                                    aria-current={page === i ? 'page' : undefined}
                                     className={`px-4 py-2 rounded-lg min-w-[40px] text-body-small font-medium transition-all duration-300 ${
                                         page === i
                                             ? 'bg-blue-500 text-white shadow-md'
@@ -79,10 +84,11 @@ export default function Certificates() {
                         <button
                             onClick={() => setPage(page + 1)}
                             disabled={page === totalPages}
+                            aria-label={t('pagination_next')}
                             className="px-4 py-2 rounded-lg bg-blue-500 text-white disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-600 transition-all duration-300 text-body-small font-medium min-w-[80px]"
                         >
                             <span className="inline sm:hidden">→</span>
-                            <span className="hidden sm:inline">Siguiente</span>
+                            <span className="hidden sm:inline">{t('pagination_next')}</span>
                         </button>
                     </div>
                 </div>

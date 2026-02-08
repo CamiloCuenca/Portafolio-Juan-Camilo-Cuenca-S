@@ -1,9 +1,11 @@
 import { GitHubIcon, LinkedinIcon, MailIcon, CopyIcon } from "../common/SvgIcons";
 import { useCopyEmail } from "../../hooks/useCopyEmail";
 import React from "react";
+import { useLanguage } from '../../i18n/LanguageProvider';
 
 export default function SocialLinks() {
   const { copied, handleCopyEmail } = useCopyEmail();
+  const { t } = useLanguage();
 
   return (
     <div className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-8 px-6 border-t border-gray-700">
@@ -20,7 +22,7 @@ export default function SocialLinks() {
               <div className="p-2 bg-white/10 rounded-lg group-hover:bg-white/20 transition-colors duration-300">
                 <GitHubIcon size={20} />
               </div>
-              <span className="font-medium text-heading-3">GitHub</span>
+              <span className="font-medium text-heading-3">{t('github')}</span>
             </a>
 
             <a
@@ -32,7 +34,7 @@ export default function SocialLinks() {
               <div className="p-2 bg-white/10 rounded-lg group-hover:bg-white/20 transition-colors duration-300">
                 <LinkedinIcon size={20} />
               </div>
-              <span className="font-medium text-heading-3">LinkedIn</span>
+              <span className="font-medium text-heading-3">{t('linkedin')}</span>
             </a>
           </div>
 
@@ -41,17 +43,17 @@ export default function SocialLinks() {
             <div className="p-2 bg-white/10 rounded-lg">
               <MailIcon size={20} />
             </div>
-            <span className="font-medium text-body-small md:text-body">camilocuencadev@gmail.com</span>
+            <span className="font-medium text-body-small md:text-body">{t('email')}</span>
             <button
               onClick={handleCopyEmail}
               className="group p-2 rounded-lg hover:bg-white/10 transition-all duration-300 hover:scale-110"
-              title="Copiar correo"
+              title={t('copied')}
             >
               <CopyIcon size={18} className="group-hover:text-blue-400 transition-colors duration-300" />
             </button>
             {copied && (
               <span className="text-green-400 text-body-small ml-2 font-medium animate-pulse">
-                ¡Copiado!
+                {t('copied')}
               </span>
             )}
           </div>

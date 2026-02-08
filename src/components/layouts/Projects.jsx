@@ -3,6 +3,7 @@ import useGitHubRepos from "../../hooks/useGitHubRepos";
 import Card from "../common/Card";
 import { useMemo, useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import { useLanguage } from '../../i18n/LanguageProvider';
 
 // Hook para detectar pantalla pequeña
 function useIsSmallScreen() {
@@ -72,6 +73,7 @@ export default function Projects() {
   const [page, setPage] = useState(1);
   const perPage = 6;
   const isSmallScreen = useIsSmallScreen();
+  const { t } = useLanguage();
 
   const filteredRepos = useMemo(() => {
     if (!repos) return [];
@@ -87,7 +89,7 @@ export default function Projects() {
   return (
     <section id="projects" className="max-w-7xl mx-auto px-6 py-12 md:py-16">
       <div className="text-center mb-12">
-        <h1 className="text-heading-2 mb-4 text-gray-800">Mis Proyectos</h1>
+        <h1 className="text-heading-2 mb-4 text-gray-800">{t('projects_title')}</h1>
         <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-400 mx-auto rounded-full"></div>
       </div>
       
@@ -97,7 +99,7 @@ export default function Projects() {
       {!loading && !error && paginatedRepos.length === 0 && (
         <div className="text-center py-12">
           <div className="text-gray-400 text-4xl mb-4">📁</div>
-          <p className="text-gray-500 text-body">No hay proyectos destacados</p>
+          <p className="text-gray-500 text-body">{t('no_projects')}</p>
         </div>
       )}
 
@@ -111,7 +113,7 @@ export default function Projects() {
               className="px-4 py-2 rounded-lg bg-blue-500 text-white disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-600 transition-all duration-300 text-body-small font-medium min-w-[80px]"
             >
               <span className="inline sm:hidden">←</span>
-              <span className="hidden sm:inline">Anterior</span>
+              <span className="hidden sm:inline">{t('pagination_prev')}</span>
             </button>
 
             {/* Elipsis inicial */}
@@ -154,7 +156,7 @@ export default function Projects() {
               className="px-4 py-2 rounded-lg bg-blue-500 text-white disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-600 transition-all duration-300 text-body-small font-medium min-w-[80px]"
             >
               <span className="inline sm:hidden">→</span>
-              <span className="hidden sm:inline">Siguiente</span>
+              <span className="hidden sm:inline">{t('pagination_next')}</span>
             </button>
           </div>
         </div>

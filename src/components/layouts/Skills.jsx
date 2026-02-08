@@ -1,4 +1,3 @@
-import { activeAnimations } from "motion";
 import PropTypes from "prop-types";
 ;
 
@@ -14,14 +13,16 @@ const skills = [
   // Frameworks
   { name: "Spring Boot", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/spring/spring-original.svg", section: "Frameworks" },
   { name: "React", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg", section: "Frameworks" },
-  { name: "Tailwind CSS", icon: "public/assets/Tailwind_CSS_Logo.svg.png", section: "Frameworks" },
+  { name: "Tailwind CSS", icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/1280px-Tailwind_CSS_Logo.svg.png", section: "Frameworks" },
   { name: "Bootstrap", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain.svg", section: "Frameworks" },
   { name: "Expo", icon: "https://www.svgrepo.com/show/373591/expo.svg", section: "Frameworks" },
+  { name: "Jetpack Compose", icon: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjC97Z8BResg5dlPqczsRCFhP6zewWX0X0e7fVPG-G7PuUZwwZVsi9OPoqJYkgqT2h0FI95SsmWzVEgpt8b8HAqFiIxZ98TFtY4lE0b8UrtVJ2HrJebRwl6C9DslsQDl9KnBIrdHS6LtkY/s1600/jetpack+compose+icon_RGB.png", section: "Frameworks" },
   { name: "Node.js", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg", section: "Frameworks" },
   { name: "Express", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg", section: "Frameworks" },
   { name: "Angular", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/angularjs/angularjs-original.svg", section: "Frameworks" },
   // Tools
   { name: "IntelliJ IDEA", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/intellij/intellij-original.svg", section: "Tools" },
+  { name: "WebStorm", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/webstorm/webstorm-original.svg", section: "Tools" },
   { name: "VS Code", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg", section: "Tools" },
   { name: "Docker", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg", section: "Tools" },
   { name: "Android Studio", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/androidstudio/androidstudio-original.svg", section: "Tools" }, 
