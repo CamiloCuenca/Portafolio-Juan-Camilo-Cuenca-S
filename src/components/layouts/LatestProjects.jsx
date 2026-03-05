@@ -71,7 +71,7 @@ export default function LatestProjects() {
             ],
             type: "mobile",
             url: "https://pomo-timer-flow.vercel.app/",
-            app: "",
+            app: "https://play.google.com/store/apps/details?id=com.camilocuenca.PomoTimerFlow",
             hasCarousel: true
         },
         {
@@ -241,8 +241,11 @@ export default function LatestProjects() {
                                             </div>
 
                                             {/* Fila inferior (Google Play) */}
-                                            <button
-                                                onClick={currentProject.app}
+                                            <a
+                                                href={currentProject.app}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                aria-label={`Abrir en Google Play: ${currentProject.title}`}
                                                 className="mt-3 w-full flex items-center justify-center gap-2
                px-4 lg:px-6 py-2.5 lg:py-3
                bg-gradient-to-r from-[#34A853] via-[#4285F4] to-[#FBBC05]
@@ -255,7 +258,7 @@ export default function LatestProjects() {
                                                 <SiGoogleplay size={22} className="group-hover:animate-pulse"/>
 
                                                 {t('download_app_gplay_btn')}
-                                            </button>
+                                            </a>
                                         </div>
 
                                     </div>
